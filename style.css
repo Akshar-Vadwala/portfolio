@@ -25,51 +25,288 @@
   --block-background-color: #26201c;
 }
 
+/* Widened for Desktop Layout */
 body {
-  padding: 2rem 1rem;
-  max-width: 900px;
+  padding: 0 2rem 0 2rem;
+  max-width: 1200px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-.terminal-nav {
+main {
+  flex: 1; /* Pushes footer to the bottom */
+}
+
+/* --- Theme Toggle Switch --- */
+.top-nav {
+  display: flex;
+  justify-content: flex-end;
+  padding: 1.5rem 0;
   margin-bottom: 2rem;
-  border-bottom: 1px dashed var(--border-color);
-  padding-bottom: 1rem;
 }
 
-.theme-toggle-btn {
-  cursor: pointer;
-  background: var(--block-background-color);
+.theme-switch-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-family: var(--global-font-family);
+  font-weight: bold;
+  font-size: 0.9rem;
   color: var(--font-color);
+  text-transform: uppercase;
+}
+
+.theme-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+}
+
+.theme-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: var(--block-background-color);
   border: 1px solid var(--border-color);
-  padding: 0.3rem 0.8rem;
-  font-family: inherit;
+  transition: .4s;
+  border-radius: 24px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 3px;
+  bottom: 3px;
+  background-color: var(--primary-color);
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+  background-color: var(--invert-font-color);
+}
+
+/* --- Hero & Snapshot Section --- */
+.hero-header {
+  margin-bottom: 3rem;
+}
+
+.hero-title-group {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.hero-title {
+  margin: 0;
+  font-size: 3.5rem;
+  line-height: 1.2;
   font-weight: bold;
 }
 
-.theme-toggle-btn:hover {
-  background: var(--primary-color);
-  color: var(--invert-font-color);
+.hero-subtitle {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+}
+
+.snapshot-card {
+  display: flex;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  gap: 2rem;
+  background: var(--background-color);
+  flex-wrap: wrap;
+}
+
+.snapshot-img-container {
+  flex: 0 0 200px;
+}
+
+.snapshot-img {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  object-fit: cover;
+  aspect-ratio: 3/4;
+}
+
+.snapshot-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.snapshot-content h3 {
+  margin-top: 0;
+  text-transform: uppercase;
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+
+.snapshot-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .badge {
   display: inline-block;
-  padding: 0.2rem 0.5rem;
-  margin-right: 0.4rem;
-  margin-bottom: 0.4rem;
+  padding: 0.3rem 0.8rem;
+  margin-right: 0.3rem;
+  margin-bottom: 0.6rem; 
   border: 1px solid var(--border-color);
-  font-size: 0.85rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  background: transparent;
+  color: var(--font-color);
+  line-height: normal;
 }
 
-/* Cursor Blink Effect */
-.cursor {
+.social-links {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.social-links svg {
+  width: 28px;
+  height: 28px;
+  fill: var(--font-color);
+  transition: fill 0.2s;
+}
+
+.social-links a:hover svg {
+  fill: var(--primary-color);
+}
+
+.learn-more-link {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-size: 0.9rem;
+  margin-top: auto;
+}
+
+.learn-more-link:hover {
+  text-decoration: underline;
+}
+
+/* --- Projects Tabbed Layout --- */
+.projects-layout {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 2rem;
+  border-top: 1px solid var(--border-color);
+  padding-top: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.projects-sidebar {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--border-color);
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.projects-sidebar::-webkit-scrollbar {
+  width: 5px;
+}
+.projects-sidebar::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+}
+
+.tab-btn {
+  background: none;
+  border: none;
+  color: var(--font-color);
+  text-align: left;
+  padding: 1rem;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  transition: background 0.2s;
+}
+
+.tab-btn:hover {
+  background: var(--block-background-color);
+}
+
+.tab-btn.active {
+  background: var(--primary-color);
+  color: var(--invert-font-color);
+  font-weight: bold;
+}
+
+.project-pane {
+  display: none;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.project-pane.active-pane {
+  display: grid;
+}
+
+.btn-outline {
   display: inline-block;
-  width: 10px;
-  background-color: var(--primary-color);
-  animation: blink 1s infinite;
+  padding: 0.5rem 1rem;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--border-color);
+  text-decoration: none;
+  color: var(--font-color);
+  border-radius: 20px;
 }
 
-@keyframes blink {
-  0%, 49% { opacity: 1; }
-  50%, 100% { opacity: 0; }
+.btn-outline:hover {
+  background: var(--font-color);
+  color: var(--background-color);
+}
+
+/* --- Terminal Footer --- */
+.terminal-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--block-background-color);
+  color: var(--font-color);
+  border-top: 1px dashed var(--border-color);
+  font-family: var(--global-font-family);
+  font-size: 0.85rem;
+  padding: 0.8rem 1.5rem;
+  margin: 2rem -2rem 0 -2rem;
+}
+
+.status-dot {
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
 }

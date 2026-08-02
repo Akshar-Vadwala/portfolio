@@ -3,166 +3,319 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio | Terminal</title>
+  <title>Akshar Vadwala | Terminal Portfolio</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <!-- Header / Navigation -->
-    <header class="terminal-nav">
-      <div class="terminal-logo">
-        <div class="logo terminal-prompt">akshar@dev:~# <span class="cursor">&nbsp;</span></div>
-      </div>
-      <nav class="terminal-menu">
-        <ul>
-          <li><a class="menu-item" href="#about">About</a></li>
-          <li><a class="menu-item" href="#experience">Experience</a></li>
-          <li><a class="menu-item" href="#projects">Projects</a></li>
-          <li><a class="menu-item" href="#publications">Publications</a></li>
-          <li><a class="menu-item" href="#community">Community</a></li>
-          <li><a class="menu-item" href="blogs/index.html">Blogs</a></li>
-          <li><button id="theme-toggle" class="theme-toggle-btn">[ ☾ Dark Mode ]</button></li>
-        </ul>
-      </nav>
-    </header>
+  
+  <!-- Top Nav with Theme Switcher -->
+  <div class="top-nav">
+    <div class="theme-switch-wrapper">
+      <span>Theme</span>
+      <label class="theme-switch" for="checkbox">
+        <input type="checkbox" id="checkbox" />
+        <div class="slider round"></div>
+      </label>
+    </div>
+  </div>
 
-    <main>
-      <!-- About Section -->
-      <section id="about" class="terminal-card">
-        <header>System.info / About</header>
-        <div>
-          <p>Computer Science Graduate Student at The University of Texas at Dallas specializing in backend infrastructure, data engineering, and distributed computing[cite: 1]. Experienced in high-throughput data processing, cloud platforms, and automated workflow pipelines[cite: 1].</p>
-          <div>
-            <span class="badge">UT Dallas MS CS</span>
-            <span class="badge">Data Engineering</span>
+  <main>
+    <!-- Hero & Snapshot Section -->
+    <header class="hero-header">
+      <div class="hero-title-group">
+        <h1 class="hero-title">Hi, I'm<br>Akshar Vadwala</h1>
+        <span class="hero-subtitle">Data Engineer / Backend Developer</span>
+      </div>
+
+      <div class="snapshot-card">
+        <div class="snapshot-img-container">
+          <img src="profile-placeholder.jpg" alt="Akshar Vadwala" class="snapshot-img">
+        </div>
+        
+        <div class="snapshot-content">
+          <h3>Snapshot</h3>
+          <div class="snapshot-badges">
+            <span class="badge">MS CS @ UT Dallas</span>
+            <span class="badge">Data Engineer Intern</span>
+            <span class="badge">HFT Pipelines</span>
             <span class="badge">Python</span>
+            <span class="badge">Java</span>
             <span class="badge">ClickHouse</span>
             <span class="badge">AWS / Azure</span>
-            <span class="badge">Linux</span>
+            <span class="badge">Django</span>
+            <span class="badge">Apache Spark</span>
+            <span class="badge">Kafka</span>
+            <span class="badge">Prefect</span>
           </div>
-          <br>
-          <p>
-            <strong>Links:</strong> 
-            <a href="https://github.com/Akshar-Vadwala" target="_blank">[ GitHub ]</a>[cite: 1]
-            <a href="https://www.linkedin.com/in/Akshar-vadwala" target="_blank">[ LinkedIn ]</a>[cite: 1]
-          </p>
+          
+          <div class="social-links">
+            <a href="https://www.linkedin.com/in/Akshar-vadwala" target="_blank" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+            <a href="https://github.com/Akshar-Vadwala" target="_blank" aria-label="GitHub">
+              <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+            <a href="AksharVadwala_Resume.pdf" target="_blank" aria-label="Resume">
+              <svg viewBox="0 0 24 24"><path d="M14 2h-9c-.552 0-1 .448-1 1v18c0 .552.448 1 1 1h14c.552 0 1-.448 1-1v-14l-6-6zm1 14h-6v-2h6v2zm0-4h-6v-2h6v2zm-2-5h-7v-2h7v2zm5-1.5l-3.5 3.5v-3.5h3.5z"/></svg>
+            </a>
+          </div>
+          
+          <a href="#projects" class="learn-more-link">Click here to view my projects!</a>
         </div>
-      </section>
+      </div>
+    </header>
 
-      <hr>
+    <hr>
 
-      <!-- Education Section -->
-      <section id="education">
-        <h2>Education</h2>
-        <ul>
-          <li>
-            <strong>MS in Computer Science</strong> — The University of Texas at Dallas (GPA: 4.00)[cite: 1]
-            <br><small>Aug 2025 – May 2027</small>
-          </li>
-          <li>
-            <strong>BE in Computer Engineering</strong> — CVM University (GPA: 3.94)[cite: 1]
-            <br><small>Sep 2021 – May 2025</small>
-          </li>
-        </ul>
-      </section>
-
-      <hr>
-
-      <!-- Experience Section -->
-      <section id="experience">
-        <h2>Work Experience</h2>
-        
-        <div class="terminal-card">
-          <header>Data Engineer Intern — Minix Holdings Pvt. Ltd. (HFT)</header>
-          <div>
-            <p><small>Jan 2025 – May 2025 | Gujarat, India</small></p>[cite: 1]
-            <ul>
-              <li>Designed and optimized high-throughput data pipelines using Python, Prefect, Bash, and ClickHouse to automate daily ingestion of 500+ GB tick data, improving throughput by 60%[cite: 1].</li>
-              <li>Built real-time ETL workflows into Azure Blob Storage for low-latency trading analytics[cite: 1].</li>
-              <li>Upgraded pipeline architecture from Prefect v2.0 to v3.0 and implemented instrument expiry logic in Linux environments[cite: 1].</li>
-            </ul>
-          </div>
+    <!-- Interactive Tabbed Projects Section -->
+    <section id="projects">
+      <h2>Projects</h2>
+      
+      <div class="projects-layout">
+        <!-- Sidebar Tabs -->
+        <div class="projects-sidebar">
+          <button class="tab-btn active" onclick="openProject(event, 'mot')">MOT Analytics</button>
+          <button class="tab-btn" onclick="openProject(event, 'reddit')">Reddit NER Stream</button>
+          <button class="tab-btn" onclick="openProject(event, 'spark')">Spark Text Processing</button>
+          <button class="tab-btn" onclick="openProject(event, 'twitter')">Twitter Graph Analytics</button>
+          <button class="tab-btn" onclick="openProject(event, 'career')">Career Recommendation ML</button>
+          <button class="tab-btn" onclick="openProject(event, 'attendance')">Network Attendance</button>
+          <button class="tab-btn" onclick="openProject(event, 'weather')">IoT Weather App</button>
+          <button class="tab-btn" onclick="openProject(event, 'resto')">Resto Order Manager</button>
+          <button class="tab-btn" onclick="openProject(event, 'bmi')">BMI Calculator</button>
         </div>
 
-        <br>
+        <!-- Content Panes -->
+        <div class="projects-content">
+          
+          <!-- Project 1: MOT -->
+          <div id="mot" class="project-pane active-pane">
+            <div class="project-info">
+              <h3>MOT Analytics</h3>
+              <p><em>A scalable tracking by detection pipeline designed for trajectory analytics in high density crowd environments.</em></p>
+              <p>The system accurately detects individuals and preserves their unique identities across complex occlusions and crossing trajectories using temporal motion prediction (Kalman Filter) and visual feature extraction (DeepSORT via ResNet18).</p>
+              
+              <div style="margin-top: 1.5rem;">
+                <a href="https://github.com/Akshar-Vadwala/MOT-Trajectory-Analytics" target="_blank" class="btn-outline">GitHub Repo</a>
+              </div>
 
-        <div class="terminal-card">
-          <header>Django Developer Intern — Technoguide Infosoft Pvt. Ltd.</header>
-          <div>
-            <p><small>May 2024 – June 2024 | Gujarat, India</small></p>[cite: 1]
-            <ul>
-              <li>Deployed a Restaurant Order Manager using Django, MySQL, SQLAlchemy, Stripe integration, and automated PDF billing[cite: 1].</li>
-              <li>Built reporting analytics dashboards that reduced manual tracking efforts by 40%[cite: 1].</li>
-            </ul>
+              <div style="margin-top: 1rem;">
+                <span class="badge">Python</span>
+                <span class="badge">YOLOv8</span>
+                <span class="badge">PyTorch</span>
+                <span class="badge">OpenCV</span>
+                <span class="badge">Kalman Filter</span>
+              </div>
+            </div>
+            <div class="project-media" style="border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; background: var(--block-background-color);">
+              <p style="padding: 2rem; text-align: center;">[ Image/GIF Placeholder ]<br><small>Replace with MOT_with_DeepSORT.gif</small></p>
+            </div>
           </div>
+
+          <!-- Project 2: Reddit NER -->
+          <div id="reddit" class="project-pane">
+            <div class="project-info">
+              <h3>Reddit NER Streaming</h3>
+              <p><em>Real-Time Named Entity Recognition on Reddit Comments.</em></p>
+              <p>A real-time data streaming pipeline that extracts Named Entities from live r/wallstreetbets comments. Built using a Spark Streaming pipeline to process data via Kafka and visualize entity frequency trends dynamically in Kibana.</p>
+              
+              <div style="margin-top: 1.5rem;">
+                <a href="https://github.com/Akshar-Vadwala/real-time-ner-reddit-streaming" target="_blank" class="btn-outline">GitHub Repo</a>
+              </div>
+
+              <div style="margin-top: 1rem;">
+                <span class="badge">Kafka</span>
+                <span class="badge">PySpark</span>
+                <span class="badge">ELK Stack</span>
+                <span class="badge">NLTK</span>
+              </div>
+            </div>
+            <div class="project-media" style="border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; background: var(--block-background-color);">
+              <p style="padding: 2rem; text-align: center;">[ Kibana Visualization Placeholder ]<br><small>Replace with kibana_30min.png</small></p>
+            </div>
+          </div>
+
+          <!-- Project 3: Spark Text -->
+          <div id="spark" class="project-pane">
+            <div class="project-info">
+              <h3>Big Data Processing</h3>
+              <p><em>Large-scale text processing and information retrieval.</em></p>
+              <p>Demonstrates distributed computation by running Named Entity WordCount on Project Gutenberg texts, and implementing a scalable TF-IDF based movie plot search engine with cosine similarity ranking on the CMU Movie Corpus.</p>
+              
+              <div style="margin-top: 1.5rem;">
+                <a href="https://github.com/Akshar-Vadwala/Big-Data-Processing-using-Spark" target="_blank" class="btn-outline">GitHub Repo</a>
+              </div>
+
+              <div style="margin-top: 1rem;">
+                <span class="badge">Apache Spark</span>
+                <span class="badge">NLTK</span>
+                <span class="badge">NumPy</span>
+                <span class="badge">TF-IDF</span>
+              </div>
+            </div>
+            <div class="project-media" style="border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; background: var(--block-background-color);">
+              <p style="padding: 2rem; text-align: center;">[ Terminal Output Placeholder ]<br><small>Replace with Task_2_b.png</small></p>
+            </div>
+          </div>
+
+          <!-- Project 4: Twitter Graph -->
+          <div id="twitter" class="project-pane">
+            <div class="project-info">
+              <h3>Twitter Graph Analytics</h3>
+              <p><em>Large-Scale Graph Analytics using GraphFrames.</em></p>
+              <p>Processes a real-world Twitter follower graph with millions of edges to identify influential users and community structures. Implements distributed PageRank, Connected Components, and Triangle Counting with Spark caching optimizations.</p>
+              
+              <div style="margin-top: 1.5rem;">
+                <a href="https://github.com/Akshar-Vadwala/large-scale-twitter-graph-analytics" target="_blank" class="btn-outline">GitHub Repo</a>
+              </div>
+
+              <div style="margin-top: 1rem;">
+                <span class="badge">GraphFrames</span>
+                <span class="badge">PySpark</span>
+                <span class="badge">PageRank</span>
+                <span class="badge">Big Data</span>
+              </div>
+            </div>
+            <div class="project-media" style="border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; background: var(--block-background-color);">
+              <p style="padding: 2rem; text-align: center;">[ Graph Data Placeholder ]</p>
+            </div>
+          </div>
+
+          <!-- Project 5: Career Guidance ML -->
+          <div id="career" class="project-pane">
+            <div class="project-info">
+              <h3>Career Recommendation using ML</h3>
+              <p><em>Machine learning-powered career recommendation system for matriculates.</em></p>
+              <p>Recommends whether students should opt for Science, Arts, or Commerce streams based on their interests and academic performance. Utilizes a Random Forest Regressor coupled with a computer-adaptive test interface.</p>
+              
+              <div style="margin-top: 1.5rem;">
+                <a href="https://github.com/Akshar-Vadwala/Career-Guidance-System-using-ML" target="_blank" class="btn-outline">GitHub Repo</a>
+              </div>
+
+              <div style="margin-top: 1rem;">
+                <span class="badge">Python Flask</span>
+                <span class="badge">MySQL</span>
+                <span class="badge">Scikit-learn</span>
+                <span class="badge">HTML/CSS/JS</span>
+              </div>
+            </div>
+            <div class="project-media" style="border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; background: var(--block-background-color);">
+              <p style="padding: 2rem; text-align: center;">[ GIF Placeholder ]<br><small>Replace with demo.gif</small></p>
+            </div>
+          </div>
+
+          <!-- Project 6: Network Attendance -->
+          <div id="attendance" class="project-pane">
+            <div class="project-info">
+              <h3>Network Attendance System</h3>
+              <p><em>A Wi-Fi network-based attendance system built from the ground up.</em></p>
+              <p>Eliminates manual tracking errors with dedicated dashboards for students, faculty, and admins. Features secure token generation, percentage-based filtering, subject allocation, and automated credential emailing.</p>
+              
+              <div style="margin-top: 1.5rem;">
+                <a href="https://github.com/thebigbone/network-attendance" target="_blank" class="btn-outline">GitHub Repo</a>
+              </div>
+
+              <div style="margin-top: 1rem;">
+                <span class="badge">Flask</span>
+                <span class="badge">Python</span>
+                <span class="badge">MySQL</span>
+                <span class="badge">Docker</span>
+              </div>
+            </div>
+            <div class="project-media" style="border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; background: var(--block-background-color);">
+              <p style="padding: 2rem; text-align: center;">[ GIF Placeholder ]<br><small>Replace with Admin_Panel.gif</small></p>
+            </div>
+          </div>
+
+          <!-- Project 7: IoT Weather App -->
+          <div id="weather" class="project-pane">
+            <div class="project-info">
+              <h3>IoT Weather App</h3>
+              <p><em>Android application providing real-time weather data using AWS IoT Core.</em></p>
+              <p>Retrieves sensor data including temperature, humidity, precipitation, and pressure via MQTT protocol. Features an interactive UI with user authentication, profile management, and a personalized dashboard.</p>
+              
+              <div style="margin-top: 1.5rem;">
+                <a href="https://github.com/Akshar-Vadwala/WeatherAPP" target="_blank" class="btn-outline">GitHub Repo</a>
+              </div>
+
+              <div style="margin-top: 1rem;">
+                <span class="badge">Java (Android)</span>
+                <span class="badge">AWS IoT Core</span>
+                <span class="badge">MQTT</span>
+                <span class="badge">SQLite</span>
+              </div>
+            </div>
+            <div class="project-media" style="border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; background: var(--block-background-color);">
+              <p style="padding: 2rem; text-align: center;">[ GIF Placeholder ]<br><small>Replace with app_demo.gif</small></p>
+            </div>
+          </div>
+
+          <!-- Project 8: Resto Order Manager -->
+          <div id="resto" class="project-pane">
+            <div class="project-info">
+              <h3>Resto Order Manager</h3>
+              <p><em>Comprehensive Django web application for restaurant operations.</em></p>
+              <p>Streamlines online food ordering and delivery. Provides a platform for customers to browse menus and place orders via Stripe, while offering robust tools for restaurant managers to update menus, generate reports, and track orders.</p>
+              
+              <div style="margin-top: 1.5rem;">
+                <a href="https://github.com/Akshar-Vadwala/Resto-Order-Manager" target="_blank" class="btn-outline">GitHub Repo</a>
+              </div>
+
+              <div style="margin-top: 1rem;">
+                <span class="badge">Django</span>
+                <span class="badge">MySQL</span>
+                <span class="badge">Stripe API</span>
+                <span class="badge">Python</span>
+              </div>
+            </div>
+            <div class="project-media" style="border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; background: var(--block-background-color);">
+              <p style="padding: 2rem; text-align: center;">[ GIF Placeholder ]<br><small>Replace with demo.gif</small></p>
+            </div>
+          </div>
+
+          <!-- Project 9: BMI Calculator -->
+          <div id="bmi" class="project-pane">
+            <div class="project-info">
+              <h3>BMI Calculator</h3>
+              <p><em>Web application for calculating Body Mass Index based on WHO guidelines.</em></p>
+              <p>Allows users to input demographic and physical data to receive an instant BMI calculation and health categorization. Built using classic Java Servlets and hosted on an Apache Tomcat server.</p>
+              
+              <div style="margin-top: 1.5rem;">
+                <a href="https://github.com/Akshar-Vadwala/BMI_Calculator" target="_blank" class="btn-outline">GitHub Repo</a>
+              </div>
+
+              <div style="margin-top: 1rem;">
+                <span class="badge">Java Servlet</span>
+                <span class="badge">HTML/CSS</span>
+                <span class="badge">Apache Tomcat</span>
+                <span class="badge">Eclipse</span>
+              </div>
+            </div>
+            <div class="project-media" style="border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; background: var(--block-background-color);">
+              <p style="padding: 2rem; text-align: center;">[ GIF Placeholder ]<br><small>Replace with demo.gif</small></p>
+            </div>
+          </div>
+
         </div>
-      </section>
+      </div>
+    </section>
+  </main>
 
-      <hr>
-
-      <!-- Projects Section -->
-      <section id="projects">
-        <h2>Key Projects</h2>
-        <ul>
-          <li>
-            <strong>Real-Time Named Entity Recognition on Reddit Stream</strong>[cite: 1]
-            <br>Built real-time PySpark + NLTK pipeline using Apache Kafka and ELK Stack (Elasticsearch, Logstash, Kibana) for live entity visualization[cite: 1].
-          </li>
-          <li>
-            <strong>Big Data Processing using Spark</strong>[cite: 1]
-            <br>Implemented distributed entity extraction and built a scalable movie-plot search engine with Spark RDDs using TF-IDF and cosine similarity[cite: 1].
-          </li>
-          <li>
-            <strong>Network Based Attendance System</strong>[cite: 1]
-            <br>Flask + MySQL system with administrative analytics dashboard verifying attendance via Wi-Fi network string-matching[cite: 1].
-          </li>
-          <li>
-            <strong>Career Recommendation System using ML</strong>[cite: 1]
-            <br>Random Forest Regression model coupled with a computer-adaptive test interface in Flask[cite: 1].
-          </li>
-        </ul>
-      </section>
-
-      <hr>
-
-      <!-- Publications Section -->
-      <section id="publications">
-        <h2>Publications</h2>
-        <ul>
-          <li>
-            "Career Recommendation Using Machine Learning for Secondary Education." <em>IEEE IATMSI Conference, 2025</em>[cite: 1].
-          </li>
-          <li>
-            "Network Based Smart Attendance System for Students." <em>International Research Journal of Innovations in Engineering and Technology (IRJIET), 2024</em>[cite: 1].
-          </li>
-          <li>
-            "A Comprehensive Review Of Digitalized Attendance Systems For Various Institutions." <em>International Journal of Engineering Applied Sciences & Technology (IJEAST), 2024</em>[cite: 1].
-          </li>
-        </ul>
-      </section>
-
-      <hr>
-
-      <!-- Extracurricular / Community Involvement -->
-      <section id="community">
-        <h2>Community & Extra-Curriculars</h2>
-        <ul>
-          <li>
-            <strong>Testing Center Proctor — UT Dallas</strong> (Jan 2026 – Present)[cite: 1]
-            <br>Operating Windows-based systems, enforcing academic policies, and supporting secure exam administration[cite: 1].
-          </li>
-          <li>
-            <strong>Chairperson — IEEE CS MBIT SB</strong> (2022 – 2024)[cite: 1]
-            <br>Led 15-member executive committee delivering 10+ technical events and tutored students in Java and C for placement interviews[cite: 1].
-          </li>
-        </ul>
-      </section>
-    </main>
-
-    <footer style="margin-top: 3rem; border-top: 1px dashed var(--border-color); padding-top: 1rem; font-size: 0.85rem;">
-      <p>© Terminal Portfolio — Built with Vanilla HTML/CSS/JS</p>
-    </footer>
-  </div>
+<!-- Custom Footer -->
+  <footer class="terminal-footer">
+    <div>
+      Session: active • TTY: /dev/pts/0 • Latency: 12ms
+    </div>
+    
+    <!-- Hacker / Terminal Aesthetic Middle Section -->
+    <div style="font-weight: bold; opacity: 0.8;">
+      [ Process completed (exit code 0) ]
+    </div>
+    
+    <div>
+      <span class="status-dot">●</span> Linux 6.15.0 • Mem: [ 1024 / 8192 MB ]
+    </div>
+  </footer>
 
   <script src="script.js"></script>
 </body>
