@@ -103,29 +103,57 @@ input:checked + .slider:before {
   background-color: var(--invert-font-color);
 }
 
-/* --- Hero & Snapshot Section --- */
-.hero-header {
-  margin-bottom: 3rem;
-}
-
+/* --- Hero Title Group Layout --- */
 .hero-title-group {
   display: flex;
-  align-items: baseline;
-  flex-wrap: wrap;
-  gap: 2rem;
+  flex-direction: column;
   margin-bottom: 2rem;
 }
 
-.hero-title {
+.hero-line-one {
+  font-size: 3.5rem;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.hero-line-two {
+  display: flex;
+  align-items: center; /* Aligns the typewriter with your name */
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.hero-title-name {
   margin: 0;
   font-size: 3.5rem;
   line-height: 1.2;
   font-weight: bold;
 }
 
+/* --- Typewriter Cursor --- */
 .hero-subtitle {
   font-size: 1.5rem;
   color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem; 
+  margin-left: 21rem;  
+}
+
+#typewriter {
+  min-height: 1.5rem; 
+}
+
+.blinking-cursor {
+  font-weight: bold;
+  color: var(--primary-color);
+  animation: blink 1s step-end infinite;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 
 .snapshot-card {

@@ -1,3 +1,40 @@
+// --- Typewriter Effect Logic ---
+const roles = ["Backend Developer", "Data Engineer", "Systems Enthusiast"];
+let roleIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+
+function typeEffect() {
+  const typewriterElement = document.getElementById("typewriter");
+  if (!typewriterElement) return;
+
+  const currentRole = roles[roleIndex];
+  
+  if (isDeleting) {
+    typewriterElement.textContent = currentRole.substring(0, charIndex - 1);
+    charIndex--;
+  } else {
+    typewriterElement.textContent = currentRole.substring(0, charIndex + 1);
+    charIndex++;
+  }
+
+  let typeSpeed = isDeleting ? 50 : 100;
+
+  if (!isDeleting && charIndex === currentRole.length) {
+    typeSpeed = 2000; 
+    isDeleting = true;
+  } 
+  
+  else if (isDeleting && charIndex === 0) {
+    isDeleting = false;
+    roleIndex = (roleIndex + 1) % roles.length;
+    typeSpeed = 500;
+  }
+
+  setTimeout(typeEffect, typeSpeed);
+}
+
+
 // Function for handling the Project Tabs
 function openProject(evt, projectName) {
   // Hide all project panes
@@ -19,6 +56,9 @@ function openProject(evt, projectName) {
 
 // Checkbox Light/Dark Theme Toggle logic
 document.addEventListener('DOMContentLoaded', () => {
+
+  typeEffect();
+
   const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
   const currentTheme = localStorage.getItem('theme') || 'light';
 
