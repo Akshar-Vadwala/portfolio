@@ -103,6 +103,24 @@ input:checked + .slider:before {
   background-color: var(--invert-font-color);
 }
 
+/* --- Terminal Prompts --- */
+.terminal-prompt-header {
+  font-family: var(--global-font-family);
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  color: var(--font-color);
+}
+
+.prompt-user {
+  color: var(--primary-color); 
+  font-weight: bold;
+}
+
+.prompt-dir {
+  color: var(--secondary-color); 
+  font-weight: bold;
+}
+
 /* --- Hero Title Group Layout --- */
 .hero-title-group {
   display: flex;
@@ -111,23 +129,25 @@ input:checked + .slider:before {
 }
 
 .hero-line-one {
+  font-family: var(--global-font-family);
   font-size: 3.5rem;
-  font-weight: bold;
+  font-weight: bold; 
   line-height: 1.2;
 }
 
 .hero-line-two {
   display: flex;
-  align-items: center; /* Aligns the typewriter with your name */
+  align-items: center; 
   flex-wrap: wrap;
   gap: 2rem;
 }
 
 .hero-title-name {
+  font-family: var(--global-font-family);
   margin: 0;
   font-size: 3.5rem;
+  font-weight: bold; 
   line-height: 1.2;
-  font-weight: bold;
 }
 
 /* --- Typewriter Cursor --- */
@@ -218,15 +238,26 @@ input:checked + .slider:before {
   margin-bottom: 1rem;
 }
 
+.social-links a {
+  display: inline-block;
+  transition: transform 0.2s ease-in-out;
+  background-color: transparent !important;
+}
+
+.social-links a:hover {
+  transform: scale(1.2); 
+  background-color: transparent !important; 
+}
+
 .social-links svg {
   width: 28px;
   height: 28px;
-  fill: var(--font-color);
+  fill: var(--font-color); 
   transition: fill 0.2s;
 }
 
 .social-links a:hover svg {
-  fill: var(--primary-color);
+  fill: var(--font-color) !important; 
 }
 
 .learn-more-link {
@@ -234,10 +265,13 @@ input:checked + .slider:before {
   text-decoration: none;
   font-size: 0.9rem;
   margin-top: auto;
+  display: inline-block;
 }
 
 .learn-more-link:hover {
   text-decoration: underline;
+  color: var(--font-color) !important;
+  background-color: transparent !important;
 }
 
 /* --- Projects Tabbed Layout --- */
@@ -313,6 +347,19 @@ input:checked + .slider:before {
 .btn-outline:hover {
   background: var(--font-color);
   color: var(--background-color);
+}
+
+.project-pane .badge {
+  background-color: var(--primary-color);
+  color: var(--invert-font-color);
+  border-color: var(--primary-color);
+}
+
+.project-media {
+  display: flex;
+  align-items: center;     
+  justify-content: center;  
+  height: 100%;            
 }
 
 /* --- Terminal Footer --- */
