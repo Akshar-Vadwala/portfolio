@@ -147,7 +147,7 @@
               </div>
             </div>
             <div class="project-media">
-              <img src="assets/MOT_with_DeepSORT(resnet).gif" alt="MOT DeepSORT Tracking Demo" style="max-width: 100%; height: auto; border-radius: 8px;">
+              <img src="assets/MOT_with_DeepSORT(resnet).gif" alt="MOT DeepSORT Tracking Demo" style="max-width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--border-color);">
             </div>
           </div>
 
@@ -173,30 +173,33 @@
             </div>
             
             <div class="project-media">
-              <img src="assets/kibana_30min.png" alt="Kibana 30 min visualization" style="max-width: 100%; height: auto; border-radius: 8px;">
+              <img src="assets/kibana_30min.png" alt="Kibana 30 min visualization" style="max-width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--border-color);">
             </div>
           </div>
 
           <!-- Project 3: Spark Text -->
           <div id="spark" class="project-pane">
             <div class="project-info">
-              <h3>Big Data Processing</h3>
-              <p><em>Large-scale text processing and information retrieval.</em></p>
-              <p>Demonstrates distributed computation by running Named Entity WordCount on Project Gutenberg texts, and implementing a scalable TF-IDF based movie plot search engine with cosine similarity ranking on the CMU Movie Corpus.</p>
+              <h3>Big Data Text Processing</h3>
+              <p><em>Large-scale natural language processing and information retrieval.</em></p>
+              <p>A distributed PySpark pipeline featuring two primary engines: a Named Entity WordCount that extracts and aggregates entities from Project Gutenberg texts, and a scalable TF-IDF movie plot search engine that ranks multi-term queries using Cosine Similarity.</p>
               
               <div style="margin-top: 1.5rem;">
                 <a href="https://github.com/Akshar-Vadwala/Big-Data-Processing-using-Spark" target="_blank" class="btn-outline">GitHub Repo</a>
               </div>
 
-              <div style="margin-top: 1rem;">
+              <div style="margin-top: 1rem;" class="project-badges">
+                <span class="badge">Python</span>
                 <span class="badge">Apache Spark</span>
                 <span class="badge">NLTK</span>
                 <span class="badge">NumPy</span>
                 <span class="badge">TF-IDF</span>
+                <span class="badge">MapReduce</span>
               </div>
             </div>
-            <div class="project-media" style="border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; background: var(--block-background-color);">
-              <p style="padding: 2rem; text-align: center;">[ Terminal Output Placeholder ]<br><small>Replace with Task_2_b.png</small></p>
+            
+            <div class="project-media">
+              <img src="assets/spark_processing.gif" alt="Spark Terminal Output" style="max-width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--border-color);">
             </div>
           </div>
 
@@ -204,45 +207,50 @@
           <div id="twitter" class="project-pane">
             <div class="project-info">
               <h3>Twitter Graph Analytics</h3>
-              <p><em>Large-Scale Graph Analytics using GraphFrames.</em></p>
-              <p>Processes a real-world Twitter follower graph with millions of edges to identify influential users and community structures. Implements distributed PageRank, Connected Components, and Triangle Counting with Spark caching optimizations.</p>
+              <p><em>Large-scale distributed graph processing using Apache Spark & GraphFrames.</em></p>
+              <p>Analyzes a real-world Twitter social network dataset containing millions of edges to uncover community structures and influential users. Implements heavy computational graph algorithms including Out/In-Degree analysis, PageRank, Connected Components, and Triangle Counting, heavily optimized using DataFrame caching, checkpointing, and edge sampling.</p>
               
               <div style="margin-top: 1.5rem;">
                 <a href="https://github.com/Akshar-Vadwala/large-scale-twitter-graph-analytics" target="_blank" class="btn-outline">GitHub Repo</a>
               </div>
 
-              <div style="margin-top: 1rem;">
+              <div style="margin-top: 1rem;" class="project-badges">
+                <span class="badge">Python</span>
+                <span class="badge">Apache Spark</span>
                 <span class="badge">GraphFrames</span>
-                <span class="badge">PySpark</span>
                 <span class="badge">PageRank</span>
-                <span class="badge">Big Data</span>
+                <span class="badge">Connected Components</span>
               </div>
             </div>
-            <div class="project-media" style="border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; background: var(--block-background-color);">
-              <p style="padding: 2rem; text-align: center;">[ Graph Data Placeholder ]</p>
+            
+            <div class="project-media">
+              <img src="assets/twitter_graphframes.gif" alt="GraphFrames Output" style="max-width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--border-color);">
             </div>
           </div>
 
-          <!-- Project 5: Career Guidance ML -->
+          <!-- Project 5: Career Recommendation ML -->
           <div id="career" class="project-pane">
             <div class="project-info">
-              <h3>Career Recommendation using ML</h3>
-              <p><em>Machine learning-powered career recommendation system for matriculates.</em></p>
-              <p>Recommends whether students should opt for Science, Arts, or Commerce streams based on their interests and academic performance. Utilizes a Random Forest Regressor coupled with a computer-adaptive test interface.</p>
+              <h3>Career Recommendation ML System</h3>
+              <p><em>Machine learning-powered educational stream recommendation system.</em></p>
+              <p>An end-to-end web application that recommends whether students should pursue Science, Arts, or Commerce streams based on their unique interests and academic history. The system features a custom computer-adaptive test interface that captures user metrics and processes them through a Random Forest model to deliver data-driven career path recommendations.</p>
               
               <div style="margin-top: 1.5rem;">
                 <a href="https://github.com/Akshar-Vadwala/Career-Guidance-System-using-ML" target="_blank" class="btn-outline">GitHub Repo</a>
               </div>
 
-              <div style="margin-top: 1rem;">
-                <span class="badge">Python Flask</span>
+              <div style="margin-top: 1rem;" class="project-badges">
+                <span class="badge">Python</span>
+                <span class="badge">Flask</span>
+                <span class="badge">Scikit-Learn</span>
+                <span class="badge">Random Forest</span>
                 <span class="badge">MySQL</span>
-                <span class="badge">Scikit-learn</span>
-                <span class="badge">HTML/CSS/JS</span>
+                <span class="badge">HTML • CSS • JS</span>
               </div>
             </div>
-            <div class="project-media" style="border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; background: var(--block-background-color);">
-              <p style="padding: 2rem; text-align: center;">[ GIF Placeholder ]<br><small>Replace with demo.gif</small></p>
+            
+            <div class="project-media">
+              <img src="assets/career_recommendation.gif" alt="Career Guidance System Demo" style="max-width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--border-color);">
             </div>
           </div>
 
@@ -250,68 +258,75 @@
           <div id="attendance" class="project-pane">
             <div class="project-info">
               <h3>Network Attendance System</h3>
-              <p><em>A Wi-Fi network-based attendance system built from the ground up.</em></p>
-              <p>Eliminates manual tracking errors with dedicated dashboards for students, faculty, and admins. Features secure token generation, percentage-based filtering, subject allocation, and automated credential emailing.</p>
+              <p><em>A 3-tier network-based attendance platform built from the ground up.</em></p>
+              <p>Eliminates manual tracking errors through a centralized architecture featuring dedicated dashboards for admins, faculty, and students. The system handles bulk user registration via CSV, secure automated password distribution via SMTP, and secure token-based attendance sessions with advanced filtering capabilities.</p>
               
               <div style="margin-top: 1.5rem;">
                 <a href="https://github.com/thebigbone/network-attendance" target="_blank" class="btn-outline">GitHub Repo</a>
               </div>
 
-              <div style="margin-top: 1rem;">
-                <span class="badge">Flask</span>
+              <div style="margin-top: 1rem;" class="project-badges">
                 <span class="badge">Python</span>
+                <span class="badge">Flask</span>
                 <span class="badge">MySQL</span>
-                <span class="badge">Docker</span>
+                <span class="badge">Role-Based Access</span>
+                <span class="badge">SMTP</span>
+                <span class="badge">HTML • CSS • JS</span>
               </div>
             </div>
-            <div class="project-media" style="border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; background: var(--block-background-color);">
-              <p style="padding: 2rem; text-align: center;">[ GIF Placeholder ]<br><small>Replace with Admin_Panel.gif</small></p>
+            
+            <div class="project-media">
+              <img src="assets/network_attendance.gif" alt="Network Attendance System" style="max-width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--border-color);">
             </div>
           </div>
 
-          <!-- Project 7: IoT Weather App -->
+         <!-- Project 7: IoT Weather App -->
           <div id="weather" class="project-pane">
             <div class="project-info">
               <h3>IoT Weather App</h3>
-              <p><em>Android application providing real-time weather data using AWS IoT Core.</em></p>
-              <p>Retrieves sensor data including temperature, humidity, precipitation, and pressure via MQTT protocol. Features an interactive UI with user authentication, profile management, and a personalized dashboard.</p>
+              <p><em>Real-time Android weather application powered by AWS IoT Core.</em></p>
+              <p>An end-to-end IoT solution that retrieves live sensor telemetry—including temperature, humidity, precipitation, and pressure via the lightweight MQTT protocol from IoT devices. The Android client features a robust interactive UI with secure user authentication, local profile management using SQLite, and a personalized data dashboard.</p>
               
               <div style="margin-top: 1.5rem;">
                 <a href="https://github.com/Akshar-Vadwala/WeatherAPP" target="_blank" class="btn-outline">GitHub Repo</a>
               </div>
 
-              <div style="margin-top: 1rem;">
+              <div style="margin-top: 1rem;" class="project-badges">
                 <span class="badge">Java (Android)</span>
                 <span class="badge">AWS IoT Core</span>
-                <span class="badge">MQTT</span>
+                <span class="badge">MQTT Protocol</span>
                 <span class="badge">SQLite</span>
               </div>
             </div>
-            <div class="project-media" style="border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; background: var(--block-background-color);">
-              <p style="padding: 2rem; text-align: center;">[ GIF Placeholder ]<br><small>Replace with app_demo.gif</small></p>
+            
+            <div class="project-media">
+              <img src="assets/weatherapp_demo.gif" alt="IoT Weather App Demo" style="max-width: 250px; max-height: 450px; border-radius: 8px; border: 1px solid var(--border-color);">
             </div>
           </div>
 
-          <!-- Project 8: Resto Order Manager -->
+         <!-- Project 8: Resto Order Manager -->
           <div id="resto" class="project-pane">
             <div class="project-info">
               <h3>Resto Order Manager</h3>
               <p><em>Comprehensive Django web application for restaurant operations.</em></p>
-              <p>Streamlines online food ordering and delivery. Provides a platform for customers to browse menus and place orders via Stripe, while offering robust tools for restaurant managers to update menus, generate reports, and track orders.</p>
+              <p>An end-to-end platform that streamlines online food ordering and delivery. It features a customer-facing portal with Stripe API integration for secure payments, alongside a robust administrative dashboard for managers to update menus, track orders in real-time, and generate business reports.</p>
               
               <div style="margin-top: 1.5rem;">
                 <a href="https://github.com/Akshar-Vadwala/Resto-Order-Manager" target="_blank" class="btn-outline">GitHub Repo</a>
               </div>
 
-              <div style="margin-top: 1rem;">
+              <div style="margin-top: 1rem;" class="project-badges">
+                <span class="badge">Python</span>
                 <span class="badge">Django</span>
                 <span class="badge">MySQL</span>
                 <span class="badge">Stripe API</span>
-                <span class="badge">Python</span>
+                <span class="badge">HTML • CSS • JS</span>
+                
               </div>
             </div>
-            <div class="project-media" style="border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; background: var(--block-background-color);">
-              <p style="padding: 2rem; text-align: center;">[ GIF Placeholder ]<br><small>Replace with demo.gif</small></p>
+            
+            <div class="project-media">
+              <img src="assets/resto_order_demo.gif" alt="Resto Order Manager Demo" style="max-width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--border-color);">
             </div>
           </div>
 
@@ -320,21 +335,22 @@
             <div class="project-info">
               <h3>BMI Calculator</h3>
               <p><em>Web application for calculating Body Mass Index based on WHO guidelines.</em></p>
-              <p>Allows users to input demographic and physical data to receive an instant BMI calculation and health categorization. Built using classic Java Servlets and hosted on an Apache Tomcat server.</p>
+              <p>A health utility application that processes user demographic and physical metrics to deliver an instant BMI calculation and health categorization. Built using classic Java Servlets and hosted on an Apache Tomcat server, demonstrating foundational backend web architecture.</p>
               
               <div style="margin-top: 1.5rem;">
                 <a href="https://github.com/Akshar-Vadwala/BMI_Calculator" target="_blank" class="btn-outline">GitHub Repo</a>
               </div>
 
-              <div style="margin-top: 1rem;">
-                <span class="badge">Java Servlet</span>
-                <span class="badge">HTML/CSS</span>
+              <div style="margin-top: 1rem;" class="project-badges">
+                <span class="badge">Java Servlets</span>
                 <span class="badge">Apache Tomcat</span>
+                <span class="badge">HTML • CSS</span>
                 <span class="badge">Eclipse</span>
               </div>
             </div>
-            <div class="project-media" style="border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; background: var(--block-background-color);">
-              <p style="padding: 2rem; text-align: center;">[ GIF Placeholder ]<br><small>Replace with demo.gif</small></p>
+            
+            <div class="project-media">
+              <img src="assets/bmi_calculator.gif" alt="BMI Calculator Demo" style="max-width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--border-color);">
             </div>
           </div>
 
