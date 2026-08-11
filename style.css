@@ -157,7 +157,7 @@ input:checked + .slider:before {
   display: flex;
   align-items: center;
   margin-top: 0.5rem; 
-  margin-left: 21rem;  
+  margin-left: 15rem;  
 }
 
 #typewriter {
@@ -272,6 +272,92 @@ input:checked + .slider:before {
   text-decoration: underline;
   color: var(--font-color) !important;
   background-color: transparent !important;
+}
+
+/* --- Education Tiles --- */
+.education-tiles {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  border-top: 1px solid var(--border-color);
+  padding-top: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.edu-tile {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  background: var(--background-color);
+  gap: 2rem;
+  transition: background 0.2s ease;
+}
+
+.edu-tile:hover {
+  background: var(--block-background-color);
+}
+
+.edu-tile-content {
+  flex: 1;
+}
+
+.edu-degree {
+  margin: 0 0 0.4rem 0;
+  font-size: 1.1rem;
+  font-family: var(--global-font-family);
+}
+
+.edu-institution {
+  margin: 0 0 0.3rem 0;
+  color: var(--secondary-color);
+  font-size: 0.95rem;
+}
+
+.edu-detail {
+  margin: 0 0 0.3rem 0;
+  font-size: 0.9rem;
+  color: var(--font-color);
+}
+
+.edu-location {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--secondary-color);
+}
+
+.edu-logo-container {
+  flex: 0 0 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.edu-logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+}
+
+.edu-logo-placeholder {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+  background: var(--block-background-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--global-font-family);
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: var(--secondary-color);
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 /* --- Projects Tabbed Layout --- */
