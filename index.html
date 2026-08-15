@@ -104,7 +104,7 @@
     <!-- Education Section -->
     <section id="education">
       <div class="terminal-prompt-header">
-        <span class="prompt-user">akshar@ubuntu</span>:<span class="prompt-dir">~/education</span>$ ls -la
+        <span class="prompt-user">akshar@ubuntu</span>:<span class="prompt-dir">~/education</span>$ cat transcript.json
       </div>
       <h2>Education</h2>
 
@@ -143,11 +143,79 @@
 
     <hr>
 
+    <!-- Experience Section -->
+    <section id="experience">
+      <div class="terminal-prompt-header">
+        <span class="prompt-user">akshar@ubuntu</span>:<span class="prompt-dir">~/experience</span>$ git log --oneline --author="akshar"
+      </div>
+      <h2>Experience</h2>
+
+      <div class="education-tiles">
+
+        <!-- Exp 1: Smart Data Solutions -->
+        <div class="edu-tile exp-tile exp-expandable">
+          <div class="edu-tile-content">
+            <h3 class="edu-degree">Software Engineer Intern</h3>
+            <p class="edu-institution">Smart Data Solutions, LLC &nbsp;|&nbsp; <em>May 2026 – Present</em></p>
+            <p class="edu-location">📍 Dallas, Texas &nbsp;<a href="https://sdata.us" target="_blank" class="exp-link">↗ sdata.us</a></p>
+            <ul class="exp-bullets">
+              <li>Developed and enhanced intelligent document processing workflows for healthcare claims using OCR technologies including ABBYY FineReader, Tesseract, and Vision-Language Models (Qwen), improving field-level extraction accuracy across CMS-1500, UB-04, and Dental claim forms.</li>
+              <li>Diagnosed and resolved production workflow issues for healthcare clients, improving data capture reliability and helping maintain contractual Field Level Accuracy (FLA) and SLA requirements.</li>
+              <li>Built and optimized backend components using Java and SQL in Linux environments, applying performance tuning, caching strategies, and workflow enhancements to increase processing efficiency.</li>
+              <li>Contributed to strategic initiatives including a client expansion recommendation engine using Matrix Factorization and Cosine Similarity, and data modernization efforts supporting migration of on-premises data assets to AWS-based platforms.</li>
+            </ul>
+          </div>
+          <div class="edu-logo-container">
+            <img src="assets/sds_logo.jpg" alt="Smart Data Solutions Logo" class="edu-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="edu-logo-placeholder" style="display:none;">SDS</div>
+          </div>
+        </div>
+
+        <!-- Exp 2: Minix Fintech -->
+        <div class="edu-tile exp-tile exp-expandable">
+          <div class="edu-tile-content">
+            <h3 class="edu-degree">Data Engineer Intern</h3>
+            <p class="edu-institution">Minix Holdings &nbsp;|&nbsp; <em>Jan 2025 – May 2025</em></p>
+            <p class="edu-location">📍 Vapi, Gujarat &nbsp;<a href="https://minix.one" target="_blank" class="exp-link">↗ minix.one</a></p>
+            <ul class="exp-bullets">
+              <li>Worked on High-Frequency Trading data pipelines across equity, crypto, and commodity markets. Contributed to real-time data infrastructure using Python, Prefect (workflow orchestration), and ClickHouse (OLAP database).</li>
+              <li>Built ETL workflows to extract, transform, and load market data (BSE, MCX, Crypto). Automated data ingestion from FTP servers and Binance APIs, transforming raw data into structured OHLCV formats (bars, trades, quotes, minbars).</li>
+              <li>Handled expiry cycle logic for BSE and MCX futures &amp; options. Stored processed data in Azure Blob Storage and ClickHouse. Ensured pipeline reliability using Prefect 2.0 workflows (later upgraded to v3.0) and collaborated using Bitbucket and Jira.</li>
+            </ul>
+          </div>
+          <div class="edu-logo-container">
+            <img src="assets/minix_logo.jpg" alt="Minix Fintech Logo" class="edu-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="edu-logo-placeholder" style="display:none;">MFT</div>
+          </div>
+        </div>
+
+        <!-- Exp 3: Technoguide Infosoft -->
+        <div class="edu-tile exp-tile exp-expandable">
+          <div class="edu-tile-content">
+            <h3 class="edu-degree">Django Developer Intern</h3>
+            <p class="edu-institution">Technoguide Infosoft &nbsp;|&nbsp; <em>May 2024 – June 2024</em></p>
+            <p class="edu-location">📍 Anand, Gujarat &nbsp;<a href="https://technoguideinfo.com" target="_blank" class="exp-link">↗ technoguideinfo.com</a></p>
+            <ul class="exp-bullets">
+              <li>Developed a Restaurant Order Manager web app using Python, Django, MySQL, and SQLAlchemy ORM, implementing Django Models and AllAuth for authentication as per client requirements; integrated Stripe payments, PDF bill generation, and menu customization to streamline restaurant workflows.</li>
+              <li>Built a responsive frontend with HTML, CSS, JavaScript, and Bootstrap, ensuring cross-device usability and delivering comprehensive reporting features for business users.</li>
+            </ul>
+          </div>
+          <div class="edu-logo-container">
+            <img src="assets/technoguide_logo.jpg" alt="Technoguide Infosoft Logo" class="edu-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="edu-logo-placeholder" style="display:none;">TGI</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <hr>
+
     <!-- Projects Section -->
     <section id="projects">
         
       <div class="terminal-prompt-header">
-        <span class="prompt-user">akshar@ubuntu</span>:<span class="prompt-dir">~/projects</span>$ ls -la
+        <span class="prompt-user">akshar@ubuntu</span>:<span class="prompt-dir">~/projects</span>$ find . -name "*.py" -o -name "*.java" | sort
       </div>
       <h2>Projects</h2>
       
@@ -404,12 +472,12 @@
 <!-- Custom Footer -->
   <footer class="terminal-footer">
     <div>
-      Session: active • TTY: /dev/pts/0 • Latency: 12ms
+      Session: Web • Uptime: 13d 6h • Latency: 12ms
     </div>
     
     <!-- Hacker / Terminal Aesthetic Middle Section -->
     <div style="font-weight: bold; opacity: 0.8;">
-      GNU/Linux • Kernel 6.15.0
+      GNU/Linux • Kernel 7.1.8
     </div>
     
     <div>
