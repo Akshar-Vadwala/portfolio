@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Akshar Vadwala | Blog</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="blog.css">
+</head>
+<body>
+
+  <!-- Top Nav -->
+  <div class="top-nav">
+    <a href="../index.html" class="back-link">← ~/portfolio</a>
+    <div class="theme-switch-wrapper">
+      <span>Theme</span>
+      <label class="theme-switch" for="checkbox">
+        <input type="checkbox" id="checkbox" />
+        <div class="slider round"></div>
+      </label>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- Page Header -->
+    <section class="blog-header">
+      <div class="terminal-prompt-header">
+        <span class="prompt-user">akshar@ubuntu</span>:<span class="prompt-dir">~/blog</span>$ ls -lt *.md
+      </div>
+      <h1>Blog</h1>
+      <p class="blog-tagline">Thoughts on engineering, systems, and things I'm learning along the way.</p>
+    </section>
+
+    <hr>
+
+    <!-- Blog Post Cards Grid -->
+    <section class="blog-grid">
+
+      <!-- Blog Card 1 -->
+      <a href="blog1.html" class="blog-card">
+        <div class="blog-card-number">01</div>
+        <div class="blog-card-body">
+          <div class="blog-card-meta">
+            <span class="blog-tag"><!-- e.g. Data Engineering --></span>
+            <span class="blog-date"><!-- e.g. Aug 2026 --></span>
+          </div>
+          <h2 class="blog-card-title"><!-- Blog Post Title --></h2>
+          <p class="blog-card-excerpt"><!-- One-liner summary or hook for the post --></p>
+          <span class="blog-read-more">cat post.md →</span>
+        </div>
+      </a>
+
+      <!-- Blog Card 2 -->
+      <a href="blog2.html" class="blog-card">
+        <div class="blog-card-number">02</div>
+        <div class="blog-card-body">
+          <div class="blog-card-meta">
+            <span class="blog-tag"><!-- e.g. Systems --></span>
+            <span class="blog-date"><!-- e.g. Jul 2026 --></span>
+          </div>
+          <h2 class="blog-card-title"><!-- Blog Post Title --></h2>
+          <p class="blog-card-excerpt"><!-- One-liner summary or hook for the post --></p>
+          <span class="blog-read-more">cat post.md →</span>
+        </div>
+      </a>
+
+      <!-- Blog Card 3 -->
+      <a href="blog3.html" class="blog-card">
+        <div class="blog-card-number">03</div>
+        <div class="blog-card-body">
+          <div class="blog-card-meta">
+            <span class="blog-tag"><!-- e.g. Machine Learning --></span>
+            <span class="blog-date"><!-- e.g. Jun 2026 --></span>
+          </div>
+          <h2 class="blog-card-title"><!-- Blog Post Title --></h2>
+          <p class="blog-card-excerpt"><!-- One-liner summary or hook for the post --></p>
+          <span class="blog-read-more">cat post.md →</span>
+        </div>
+      </a>
+
+      <!-- 
+        TEMPLATE: Copy a blog-card block above and increment:
+        - blog-card-number (04, 05, ...)
+        - href (blog4.html, blog5.html, ...)
+        - Fill in tag, date, title, excerpt
+      -->
+
+    </section>
+
+  </main>
+
+  <!-- Custom Footer -->
+  <footer class="terminal-footer">
+    <div>
+      Session: Web • Uptime: 13d 6h • Latency: 12ms
+    </div>
+    <div style="font-weight: bold; opacity: 0.8;">
+      GNU/Linux • Kernel 7.1.8
+    </div>
+    <div>
+      CPU ▓▓▓▓▓▓▓░░░ 68% •
+      RAM ▓▓▓▓░░░░░░ 41% 
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>

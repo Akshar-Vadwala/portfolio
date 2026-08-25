@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Post Title | Akshar Vadwala</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="blog.css">
+</head>
+<body>
+
+  <!-- Top Nav -->
+  <div class="top-nav">
+    <a href="index.html" class="back-link">← ~/blog</a>
+    <div class="theme-switch-wrapper">
+      <span>Theme</span>
+      <label class="theme-switch" for="checkbox">
+        <input type="checkbox" id="checkbox" />
+        <div class="slider round"></div>
+      </label>
+    </div>
+  </div>
+
+  <!-- Reading Progress Bar -->
+  <div class="post-reading-bar">
+    <div class="post-reading-bar-fill" id="reading-progress"></div>
+  </div>
+
+  <main>
+
+    <!-- Post Header -->
+    <section class="post-header">
+      <div class="terminal-prompt-header">
+        <span class="prompt-user">akshar@ubuntu</span>:<span class="prompt-dir">~/blog</span>$ cat blog3.md
+      </div>
+
+      <h1 class="post-title"><!-- Your Blog Post Title Here --></h1>
+
+      <div class="post-meta">
+        <span class="blog-tag"><!-- e.g. Data Engineering --></span>
+        <span class="post-meta-item">📅 <!-- e.g. August 25, 2026 --></span>
+        <span class="post-meta-item">⏱ <!-- e.g. 5 min read --></span>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- Post Content -->
+    <article class="post-content">
+
+      <!-- INTRO -->
+      <p>
+        <!-- Your opening paragraph. Set the context for what the reader will learn. -->
+      </p>
+
+      <div class="post-section-break">· · ·</div>
+
+      <!-- SECTION 1 -->
+      <h2><!-- Section Heading --></h2>
+      <p>
+        <!-- Section content goes here. Write naturally. -->
+      </p>
+
+      <!-- Example: code block -->
+      <!--
+      <pre><code>def example():
+    print("Hello from the blog!")
+    return True</code></pre>
+      -->
+
+      <!-- Example: blockquote -->
+      <!--
+      <blockquote>
+        <p>"A great quote or key takeaway you want to highlight."</p>
+      </blockquote>
+      -->
+
+      <!-- Example: bullet list -->
+      <!--
+      <ul>
+        <li>First point about the topic</li>
+        <li>Second point with more detail</li>
+        <li>Third point wrapping up</li>
+      </ul>
+      -->
+
+      <div class="post-section-break">· · ·</div>
+
+      <!-- SECTION 2 -->
+      <h2><!-- Another Section Heading --></h2>
+      <p>
+        <!-- More content. Add images with <img src="..." alt="..."> -->
+      </p>
+
+      <div class="post-section-break">· · ·</div>
+
+      <!-- CONCLUSION -->
+      <h2>Wrapping Up</h2>
+      <p>
+        <!-- Summarize key points. What should the reader take away? -->
+      </p>
+
+    </article>
+
+    <hr>
+
+    <!-- Post Navigation -->
+    <nav class="post-nav">
+      <a href="blog2.html" class="post-nav-prev">← Previous Post</a>
+      <!-- Link to the next blog post when it exists -->
+      <a href="index.html" class="post-nav-next">All Posts →</a>
+    </nav>
+
+  </main>
+
+  <!-- Custom Footer -->
+  <footer class="terminal-footer">
+    <div>
+      Session: Web • Uptime: 13d 6h • Latency: 12ms
+    </div>
+    <div style="font-weight: bold; opacity: 0.8;">
+      GNU/Linux • Kernel 7.1.8
+    </div>
+    <div>
+      CPU ▓▓▓▓▓▓▓░░░ 68% •
+      RAM ▓▓▓▓░░░░░░ 41% 
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+
+  <!-- Reading Progress Bar Script -->
+  <script>
+    window.addEventListener('scroll', function() {
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrolled = (window.scrollY / docHeight) * 100;
+      document.getElementById('reading-progress').style.width = scrolled + '%';
+    });
+  </script>
+</body>
+</html>

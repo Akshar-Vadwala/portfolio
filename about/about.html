@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Akshar Vadwala | About</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="about.css">
+</head>
+<body>
+  
+  <!-- Top Nav with Theme Switcher + Back Link -->
+  <div class="top-nav">
+    <a href="../index.html" class="back-link">← ~/portfolio</a>
+    <div class="theme-switch-wrapper">
+      <span>Theme</span>
+      <label class="theme-switch" for="checkbox">
+        <input type="checkbox" id="checkbox" />
+        <div class="slider round"></div>
+      </label>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- Page Header -->
+    <section class="about-header">
+      <div class="terminal-prompt-header">
+        <span class="prompt-user">akshar@ubuntu</span>:<span class="prompt-dir">~/about</span>$ whoami --verbose
+      </div>
+      <h1>About Me</h1>
+    </section>
+
+    <hr>
+
+    <!-- Who Am I -->
+    <section class="about-section">
+      <div class="terminal-prompt-header">
+        <span class="prompt-user">akshar@ubuntu</span>:<span class="prompt-dir">~/about</span>$ cat bio.txt
+      </div>
+      <h2>Who Am I</h2>
+      <div class="about-card">
+        <div class="about-card-img">
+          <img src="../assets/Profile.jpg" alt="Akshar Vadwala" class="about-profile-img">
+        </div>
+        <div class="about-card-text">
+          <p><!-- Your bio paragraph 1 goes here --></p>
+          <p><!-- Your bio paragraph 2 goes here --></p>
+        </div>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- Technical Skills -->
+    <section class="about-section">
+      <div class="terminal-prompt-header">
+        <span class="prompt-user">akshar@ubuntu</span>:<span class="prompt-dir">~/about</span>$ cat skills.json | jq '.[]'
+      </div>
+      <h2>Technical Skills</h2>
+
+      <div class="skills-grid">
+
+        <div class="skill-category">
+          <h3>Languages</h3>
+          <div class="skill-tags">
+            <!-- Add badges here e.g. <span class="badge">Python</span> -->
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3>Frameworks & Libraries</h3>
+          <div class="skill-tags">
+            <!-- Add badges here -->
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3>Databases</h3>
+          <div class="skill-tags">
+            <!-- Add badges here -->
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3>Cloud & Infrastructure</h3>
+          <div class="skill-tags">
+            <!-- Add badges here -->
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3>Tools & Platforms</h3>
+          <div class="skill-tags">
+            <!-- Add badges here -->
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3>Data & ML</h3>
+          <div class="skill-tags">
+            <!-- Add badges here -->
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- Coursework -->
+    <section class="about-section">
+      <div class="terminal-prompt-header">
+        <span class="prompt-user">akshar@ubuntu</span>:<span class="prompt-dir">~/about</span>$ tree coursework/
+      </div>
+      <h2>Relevant Coursework</h2>
+
+      <div class="coursework-grid">
+        <div class="coursework-col">
+          <h3>Graduate (UT Dallas)</h3>
+          <ul class="coursework-list">
+            <!-- Add <li> items here -->
+          </ul>
+        </div>
+        <div class="coursework-col">
+          <h3>Undergraduate (CVM)</h3>
+          <ul class="coursework-list">
+            <!-- Add <li> items here -->
+          </ul>
+        </div>
+      </div>
+    </section>
+
+
+    <hr>
+
+    <!-- Beyond the Code -->
+    <section class="about-section">
+      <div class="terminal-prompt-header">
+        <span class="prompt-user">akshar@ubuntu</span>:<span class="prompt-dir">~/about</span>$ cat hobbies.md
+      </div>
+      <h2>Beyond the Code</h2>
+      <div class="about-card">
+        <div class="about-card-text full-width">
+          <p><!-- Write about your hobbies, interests, what drives you outside of work --></p>
+        </div>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- Contact / Connect -->
+    <section class="about-section">
+      <div class="terminal-prompt-header">
+        <span class="prompt-user">akshar@ubuntu</span>:<span class="prompt-dir">~/about</span>$ echo $CONTACT_INFO
+      </div>
+      <h2>Let's Connect</h2>
+      <div class="connect-card">
+        <p><!-- A line about being open to opportunities / collaborations --></p>
+        <div class="connect-links">
+          <!-- LinkedIn -->
+          <a href="https://www.linkedin.com/in/Akshar-vadwala" target="_blank" class="btn-outline">LinkedIn</a>
+          <!-- GitHub -->
+          <a href="https://github.com/Akshar-Vadwala" target="_blank" class="btn-outline">GitHub</a>
+          <!-- Email -->
+          <a href="mailto:" class="btn-outline">Email</a>
+          <!-- Resume -->
+          <a href="../AksharVadwala_Resume.pdf" target="_blank" class="btn-outline">Resume</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Custom Footer -->
+  <footer class="terminal-footer">
+    <div>
+      Session: Web • Uptime: 13d 6h • Latency: 12ms
+    </div>
+    <div style="font-weight: bold; opacity: 0.8;">
+      GNU/Linux • Kernel 7.1.8
+    </div>
+    <div>
+      CPU ▓▓▓▓▓▓▓░░░ 68% •
+      RAM ▓▓▓▓░░░░░░ 41% 
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>

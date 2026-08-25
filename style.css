@@ -156,12 +156,19 @@ input:checked + .slider:before {
   color: var(--primary-color);
   display: flex;
   align-items: center;
-  margin-top: 0.5rem; 
-  margin-left: 15rem;  
+  margin-top: 0.5rem;
+  margin-left: 0;
+}
+
+/* Only indent typewriter on wide desktop screens */
+@media (min-width: 900px) {
+  .hero-subtitle {
+    margin-left: 15rem;
+  }
 }
 
 #typewriter {
-  min-height: 1.5rem; 
+  min-height: 1.5 rem; 
 }
 
 .blinking-cursor {
@@ -194,8 +201,7 @@ input:checked + .slider:before {
   width: 100%;
   border-radius: 8px;
   border: 1px solid var(--border-color);
-  object-fit: cover;
-  aspect-ratio: 3/4;
+  object-fit: contain;
 }
 
 .snapshot-content {
@@ -569,4 +575,230 @@ input:checked + .slider:before {
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(5px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+
+  body {
+    padding: 0 1rem;
+  }
+
+  /* --- Hero --- */
+  .hero-line-one,
+  .hero-title-name {
+    font-size: 2.2rem;
+  }
+
+  .hero-subtitle {
+    margin-left: 0;
+    font-size: 1.1rem;
+  }
+
+  .hero-line-two {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  /* --- Snapshot Card --- */
+  .snapshot-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1.2rem;
+    gap: 1.2rem;
+  }
+
+  .snapshot-img-container {
+    flex: none;
+    width: 160px;
+  }
+
+  .snapshot-badges {
+    justify-content: center;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+
+  .learn-more-link {
+    text-align: center;
+    width: 100%;
+  }
+
+  /* --- Terminal Prompt overflow --- */
+  .terminal-prompt-header {
+    font-size: 0.85rem;
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    padding-bottom: 0.3rem;
+  }
+
+  /* --- Education / Experience Tiles --- */
+  .edu-tile {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.2rem;
+    gap: 1rem;
+  }
+
+  .edu-logo-container {
+    flex: none;
+    align-self: flex-start;
+  }
+
+  .edu-logo,
+  .edu-logo-placeholder {
+    width: 70px;
+    height: 70px;
+  }
+
+  .edu-logo-container {
+    flex: 0 0 70px;
+  }
+
+  /* Reorder: logo on top for mobile */
+  .edu-tile {
+    flex-direction: column-reverse;
+  }
+
+  /* --- Experience Bullets --- */
+  .exp-bullets {
+    padding-left: 0;
+  }
+
+  .exp-bullets li {
+    font-size: 0.82rem;
+    padding-left: 1.2rem;
+  }
+
+  /* --- Publication Tiles --- */
+  .pub-badge-col {
+    flex: 0 0 50px;
+  }
+
+  .pub-index-badge {
+    font-size: 1.5rem;
+  }
+
+  .pub-tile {
+    flex-direction: row !important;
+  }
+
+  /* --- Projects Tabbed Layout --- */
+  .projects-layout {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .projects-sidebar {
+    flex-direction: row;
+    overflow-x: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+    max-height: none;
+    gap: 0;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .tab-btn {
+    white-space: nowrap;
+    padding: 0.7rem 1rem;
+    font-size: 0.85rem;
+    border-bottom: none;
+    border-right: 1px solid var(--border-color);
+  }
+
+  .tab-btn:last-child {
+    border-right: none;
+  }
+
+  .project-pane.active-pane {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .project-media img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  /* --- Footer --- */
+  .terminal-footer {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1rem;
+    margin: 2rem -1rem 0 -1rem;
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+
+  body {
+    padding: 0 0.7rem;
+  }
+
+  .hero-line-one,
+  .hero-title-name {
+    font-size: 1.6rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .top-nav {
+    padding: 1rem 0;
+    margin-bottom: 1rem;
+  }
+
+  .snapshot-img-container {
+    width: 130px;
+  }
+
+  .badge {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.6rem;
+  }
+
+  .edu-degree {
+    font-size: 0.95rem;
+  }
+
+  .edu-institution {
+    font-size: 0.82rem;
+  }
+
+  .edu-logo,
+  .edu-logo-placeholder {
+    width: 55px;
+    height: 55px;
+  }
+
+  .edu-logo-container {
+    flex: 0 0 55px;
+  }
+
+  .tab-btn {
+    font-size: 0.75rem;
+    padding: 0.5rem 0.8rem;
+  }
+
+  .btn-outline {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .pub-abstract {
+    font-size: 0.8rem;
+  }
+
+  .terminal-footer {
+    font-size: 0.7rem;
+    margin: 1.5rem -0.7rem 0 -0.7rem;
+  }
 }
