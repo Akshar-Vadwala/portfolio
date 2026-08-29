@@ -385,6 +385,12 @@ input:checked + .slider:before {
   position: relative;
 }
 
+.exp-bullets li::marker,
+.exp-bullets li::after {
+  content: none;
+  display: none;
+}
+
 .exp-bullets li::before {
   content: "▸";
   position: absolute;

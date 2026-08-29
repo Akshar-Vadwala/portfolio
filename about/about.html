@@ -23,20 +23,10 @@
 
   <main>
 
-    <!-- Page Header -->
-    <section class="about-header">
-      <div class="terminal-prompt-header">
-        <span class="prompt-user">akshar@ubuntu</span>:<span class="prompt-dir">~/about</span>$ whoami --verbose
-      </div>
-      <h1>About Me</h1>
-    </section>
-
-    <hr>
-
     <!-- Who Am I -->
     <section class="about-section">
       <div class="terminal-prompt-header">
-        <span class="prompt-user">akshar@ubuntu</span>:<span class="prompt-dir">~/about</span>$ cat bio.txt
+        <span class="prompt-user">akshar@ubuntu</span>:<span class="prompt-dir">~/about</span>$ whoami --verbose
       </div>
       <h2>Who Am I</h2>
       <div class="about-card">
@@ -44,8 +34,9 @@
           <img src="../assets/Profile.jpg" alt="Akshar Vadwala" class="about-profile-img">
         </div>
         <div class="about-card-text">
-          <p><!-- Your bio paragraph 1 goes here --></p>
-          <p><!-- Your bio paragraph 2 goes here --></p>
+          <p>I am a software engineer highly interested in data processing, software architecting, system design, and distributed computing technologies. Currently, I am pursuing my Master's degree in Computer Science at The University of Texas at Dallas.</p>
+          <p>I am currently working as a Software Engineer Intern at Smart Data Solutions, a healthtech company. Previously, I engineered high throughput ETL pipelines as a Data Engineer Intern at Minix Fintech, a high frequency trading firm, and built full stack web applications as a Django Developer Intern at Technoguide Infosoft. Outside of the codebase, I have also led a 15 member team as the Chairperson of the MBIT IEEE Computer Society.</p>
+          <p>Beyond just writing code, I am deeply passionate about translating complex business logic into technical solutions. With AI tools accelerating development, I believe the true value of an engineer lies in understanding the core business at a granular level and designing the right system architecture to support it.</p>
         </div>
       </div>
     </section>
@@ -64,42 +55,72 @@
         <div class="skill-category">
           <h3>Languages</h3>
           <div class="skill-tags">
-            <!-- Add badges here e.g. <span class="badge">Python</span> -->
+            <span class="badge">Python</span>
+            <span class="badge">Java</span>
+            <span class="badge">C</span>
+            <span class="badge">C++</span>
+            <span class="badge">JS</span>
           </div>
         </div>
 
         <div class="skill-category">
           <h3>Frameworks & Libraries</h3>
           <div class="skill-tags">
-            <!-- Add badges here -->
+            <span class="badge">Flask</span>
+            <span class="badge">Django</span>
+            <span class="badge">Servlets</span>
+            <span class="badge">JSP</span>
+            <span class="badge">JSTL</span>
+            <span class="badge">Bootstrap</span>
+            <span class="badge">Prefect</span>
+            <span class="badge">FastAPI</span>
+            <span class="badge">JDBC</span>
           </div>
         </div>
 
         <div class="skill-category">
           <h3>Databases</h3>
           <div class="skill-tags">
-            <!-- Add badges here -->
+            <span class="badge">MySQL</span>
+            <span class="badge">Postgres</span>
+            <span class="badge">Clickhouse</span>
+            <span class="badge">MongoDB</span>
           </div>
         </div>
 
         <div class="skill-category">
           <h3>Cloud & Infrastructure</h3>
           <div class="skill-tags">
-            <!-- Add badges here -->
+            <span class="badge">AWS (S3, EC2, EMR, IoT Core)</span>
+            <span class="badge">Azure (Blob, DataLake, DataFactory)</span>
+            <span class="badge">Docker</span>
+            <span class="badge">Linux</span>
+            <span class="badge">Windows</span>
           </div>
         </div>
 
         <div class="skill-category">
           <h3>Tools & Platforms</h3>
           <div class="skill-tags">
-            <!-- Add badges here -->
+            <span class="badge">VS Code</span>
+            <span class="badge">IntelliJ</span>
+            <span class="badge">Eclipse</span>
+            <span class="badge">Android Studio</span>
+            <span class="badge">Git</span>
+            <span class="badge">Jira</span>
           </div>
         </div>
 
         <div class="skill-category">
           <h3>Data & ML</h3>
           <div class="skill-tags">
-            <!-- Add badges here -->
+            <span class="badge">Hadoop</span>
+            <span class="badge">Spark</span>
+            <span class="badge">Kafka</span>
+            <span class="badge">GraphX</span>
+            <span class="badge">Pandas</span>
+            <span class="badge">NLTK</span>
+            <span class="badge">Scikit-learn</span>
           </div>
         </div>
 
@@ -119,13 +140,18 @@
         <div class="coursework-col">
           <h3>Graduate (UT Dallas)</h3>
           <ul class="coursework-list">
-            <!-- Add <li> items here -->
+            <li><strong>Pursuing M.S. in Computer Science</strong> (Focus on Data-Oriented Technologies and Software Engineering)</li>
+            <li><strong>Fall 2025:</strong> CS6301 Secure Software Development, CS6350 Big Data Management & Analytics, CS6360 Database Design</li>
+            <li><strong>Spring 2026:</strong> CS6363 Design & Analysis of Computer Algorithms, CS6375 Machine Learning, CS6384 Computer Vision</li>
+            <li><strong>Fall 2026:</strong> CS6313 Statistical Methods for Data Science</li>
           </ul>
         </div>
         <div class="coursework-col">
-          <h3>Undergraduate (CVM)</h3>
+          <h3>Undergraduate (CVM University)</h3>
           <ul class="coursework-list">
-            <!-- Add <li> items here -->
+            <li><strong>B.E. in Computer Engineering</strong> (Graduated with first rank in the class of 2025 at MBIT)</li>
+            <li><strong>Core CS:</strong> Programming Languages, Object-Oriented Programming, Operating Systems, Computer Networks, Database Management Systems, Data Structures and Algorithms, Compiler Design, Big Data Analytics, Advanced Java</li>
+            <li><strong>Foundational Math:</strong> Calculus, Linear Algebra, Probability & Statistics, Numerical Methods, Discrete Mathematics</li>
           </ul>
         </div>
       </div>
@@ -140,9 +166,34 @@
         <span class="prompt-user">akshar@ubuntu</span>:<span class="prompt-dir">~/about</span>$ cat hobbies.md
       </div>
       <h2>Beyond the Code</h2>
-      <div class="about-card">
-        <div class="about-card-text full-width">
-          <p><!-- Write about your hobbies, interests, what drives you outside of work --></p>
+      <div class="hobbies-grid">
+        <div class="hobby-card">
+          <div class="hobby-icon">👨‍🍳</div>
+          <div class="hobby-info">
+            <h3>Cooking</h3>
+            <p>I love to cook just about anything, but I have a special passion for experimenting with Pastas.</p>
+          </div>
+        </div>
+        <div class="hobby-card">
+          <div class="hobby-icon">⚽</div>
+          <div class="hobby-info">
+            <h3>Sports</h3>
+            <p>I enjoy playing outdoor sports to stay active, and I'm particularly good at cricket, soccer, and volleyball.</p>
+          </div>
+        </div>
+        <div class="hobby-card">
+          <div class="hobby-icon">🌍</div>
+          <div class="hobby-info">
+            <h3>History & Geopolitics</h3>
+            <p>Deeply interested in world history and geopolitics, especially focusing on movements around the 1930s to 1950s.</p>
+          </div>
+        </div>
+        <div class="hobby-card">
+          <div class="hobby-icon">🌲</div>
+          <div class="hobby-info">
+            <h3>Nature</h3>
+            <p>I love exploring nature-driven places and the outdoors. Visiting Japan is currently at the top of my wishlist!</p>
+          </div>
         </div>
       </div>
     </section>
@@ -156,16 +207,16 @@
       </div>
       <h2>Let's Connect</h2>
       <div class="connect-card">
-        <p><!-- A line about being open to opportunities / collaborations --></p>
+        <p>I am always open to new opportunities, collaborations, and discussions around data systems and software engineering.</p>
         <div class="connect-links">
           <!-- LinkedIn -->
           <a href="https://www.linkedin.com/in/Akshar-vadwala" target="_blank" class="btn-outline">LinkedIn</a>
           <!-- GitHub -->
           <a href="https://github.com/Akshar-Vadwala" target="_blank" class="btn-outline">GitHub</a>
           <!-- Email -->
-          <a href="mailto:" class="btn-outline">Email</a>
+          <a href="mailto:aksharvadwala@gmail.com" class="btn-outline">Email</a>
           <!-- Resume -->
-          <a href="../AksharVadwala_Resume.pdf" target="_blank" class="btn-outline">Resume</a>
+          <a href="../assets/AksharVadwala_Resume.pdf" target="_blank" class="btn-outline">Resume</a>
         </div>
       </div>
     </section>
