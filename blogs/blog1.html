@@ -38,9 +38,9 @@
 
       <div class="post-meta">
         <span class="blog-tag">Infrastructure</span>
-        <span class="post-meta-item"> July 29, 2026</span>
+        <span class="post-meta-item">📅 July 29, 2026</span>
         <span class="post-meta-item">⏱ 6 min read</span>
-        <span class="post-meta-item" id="blog-views">👁 <span id="view-count">...</span> views</span>
+        <span class="post-meta-item" id="blog-views"><span id="view-count">...</span> views</span>
       </div>
     </section>
 
@@ -247,19 +247,25 @@ print("Hello World!")  # Wait, I meant to type "Hello Docker!"</code></pre>
       document.getElementById('reading-progress').style.width = scrolled + '%';
     });
 
-    // View Counter via CounterAPI
-    async function fetchBlogViews(postKey) {
+    // View Counter via reliable hits API
+    async function fetchBlogViews(pageUrl) {
       try {
-        const res = await fetch(`https://api.counterapi.dev/v1/akshar-vadwala-portfolio/${postKey}/up`);
-        const data = await res.json();
-        if (data && typeof data.count !== 'undefined') {
-          document.getElementById('view-count').textContent = data.count.toLocaleString();
+        const res = await fetch(`https://hitscounter.dev/api/hit?url=${encodeURIComponent(pageUrl)}`);
+        const text = await res.text();
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(text, "image/svg+xml");
+        const titleEl = xmlDoc.querySelector("title");
+        if (titleEl && titleEl.textContent) {
+          const count = titleEl.textContent.split("/")[0].trim();
+          document.getElementById('view-count').textContent = parseInt(count, 10).toLocaleString();
+          return;
         }
+        document.getElementById('blog-views').style.display = 'none';
       } catch (err) {
         document.getElementById('blog-views').style.display = 'none';
       }
     }
-    fetchBlogViews('blog-docker-guide');
+    fetchBlogViews('https://akshar-vadwala.github.io/portfolio/blogs/blog1.html');
   </script>
 </body>
 </html>
