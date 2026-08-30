@@ -40,7 +40,8 @@
       <div class="post-meta">
         <span class="blog-tag">Software Engineering</span>
         <span class="post-meta-item"> August 25, 2026</span>
-        <span class="post-meta-item">⏱ 10 min read</span>
+        <span class="post-meta-item">⏱ 8 min read</span>
+        <span class="post-meta-item" id="blog-views">👁 <span id="view-count">...</span> views</span>
       </div>
     </section>
 
@@ -356,29 +357,19 @@ asyncio.run(main())</code></pre>
       document.getElementById('reading-progress').style.width = scrolled + '%';
     });
 
-    // Init mermaid with theme-aware colors
-    function initMermaid() {
-      const isDark = document.documentElement.getAttribute('data-theme') === 'dark'
-                  || document.body.getAttribute('data-theme') === 'dark';
-      mermaid.initialize({
-        startOnLoad: true,
-        theme: isDark ? 'dark' : 'default',
-        themeVariables: {
-          primaryColor: isDark ? '#2a2a2a' : '#f5f5f5',
-          primaryTextColor: isDark ? '#e0e0e0' : '#111',
-          lineColor: '#c75000',
-          edgeLabelBackground: isDark ? '#1a1a1a' : '#fff',
-          clusterBkg: isDark ? '#1e1e1e' : '#fafafa',
-          clusterBorder: '#c75000',
+    // View Counter via CounterAPI
+    async function fetchBlogViews(postKey) {
+      try {
+        const res = await fetch(`https://api.counterapi.dev/v1/akshar-vadwala-portfolio/${postKey}/up`);
+        const data = await res.json();
+        if (data && typeof data.count !== 'undefined') {
+          document.getElementById('view-count').textContent = data.count.toLocaleString();
         }
-      });
+      } catch (err) {
+        document.getElementById('blog-views').style.display = 'none';
+      }
     }
-    initMermaid();
-
-    // Re-render mermaid when theme toggles
-    document.getElementById('checkbox').addEventListener('change', function() {
-      setTimeout(() => { location.reload(); }, 150);
-    });
+    fetchBlogViews('blog-concurrency-matrix');
   </script>
 </body>
 </html>

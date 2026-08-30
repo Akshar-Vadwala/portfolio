@@ -40,6 +40,7 @@
         <span class="blog-tag">Infrastructure</span>
         <span class="post-meta-item"> July 29, 2026</span>
         <span class="post-meta-item">⏱ 6 min read</span>
+        <span class="post-meta-item" id="blog-views">👁 <span id="view-count">...</span> views</span>
       </div>
     </section>
 
@@ -245,6 +246,20 @@ print("Hello World!")  # Wait, I meant to type "Hello Docker!"</code></pre>
       const scrolled = (window.scrollY / docHeight) * 100;
       document.getElementById('reading-progress').style.width = scrolled + '%';
     });
+
+    // View Counter via CounterAPI
+    async function fetchBlogViews(postKey) {
+      try {
+        const res = await fetch(`https://api.counterapi.dev/v1/akshar-vadwala-portfolio/${postKey}/up`);
+        const data = await res.json();
+        if (data && typeof data.count !== 'undefined') {
+          document.getElementById('view-count').textContent = data.count.toLocaleString();
+        }
+      } catch (err) {
+        document.getElementById('blog-views').style.display = 'none';
+      }
+    }
+    fetchBlogViews('blog-docker-guide');
   </script>
 </body>
 </html>
