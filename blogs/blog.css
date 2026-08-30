@@ -737,6 +737,119 @@
   .post-nav-next {
     margin-left: 0;
   }
+
+  /* --- Diagram 1 (Execution Models) Responsive --- */
+  .diagram-box {
+    margin: 1rem 0;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .exec-diagram {
+    padding: 0.8rem 0.8rem;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .exec-row {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.6rem !important;
+    padding: 0.8rem 0 !important;
+    width: 100% !important;
+    overflow: hidden;
+  }
+
+  .exec-label {
+    text-align: left !important;
+    flex: none !important;
+    width: 100% !important;
+    font-size: 0.95rem !important;
+    display: flex !important;
+    align-items: baseline !important;
+    gap: 0.5rem !important;
+  }
+
+  .exec-sublabel {
+    display: inline-block !important;
+  }
+
+  .exec-track {
+    display: flex !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    flex-wrap: nowrap !important;
+    padding-bottom: 0.4rem !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .exec-tracks-col {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .exec-tracks-col .exec-track {
+    width: max-content !important;
+  }
+
+  .exec-block {
+    font-size: 0.75rem !important;
+    padding: 0.35rem 0.65rem !important;
+    flex-shrink: 0 !important;
+  }
+
+  .exec-arrow {
+    font-size: 0.9rem !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* --- Diagram 2 (Tree Diagram) Responsive --- */
+  .tree-diagram {
+    padding: 1.2rem 0.8rem !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .tree-connector {
+    display: none !important;
+  }
+
+  .tree-leaves {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    gap: 1rem !important;
+    margin-top: 1rem !important;
+  }
+
+  .tree-leaf {
+    width: 100% !important;
+    display: block !important;
+  }
+
+  .tree-root {
+    width: 100% !important;
+  }
+
+  .root-node {
+    width: 100% !important;
+    padding: 0.6rem 1rem !important;
+    font-size: 0.9rem !important;
+    box-sizing: border-box !important;
+  }
+
+  .leaf-node {
+    width: 100% !important;
+    padding: 0.9rem 1rem !important;
+    box-sizing: border-box !important;
+  }
 }
 
 @media (max-width: 480px) {
@@ -763,5 +876,18 @@
 
   .post-content h2 {
     font-size: 1.1rem;
+  }
+
+  .exec-diagram {
+    padding: 0.6rem 0.6rem;
+  }
+
+  .exec-block {
+    font-size: 0.72rem;
+    padding: 0.3rem 0.55rem;
+  }
+
+  .tree-diagram {
+    padding: 1rem 0.5rem;
   }
 }
