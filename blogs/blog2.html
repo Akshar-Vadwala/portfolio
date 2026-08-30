@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog Post Title | Akshar Vadwala</title>
+  <title>The Concurrency Matrix | Akshar Vadwala</title>
   <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="blog.css">
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
 </head>
 <body>
 
@@ -31,15 +32,15 @@
     <!-- Post Header -->
     <section class="post-header">
       <div class="terminal-prompt-header">
-        <span class="prompt-user">akshar@ubuntu</span>:<span class="prompt-dir">~/blog</span>$ cat blog2.md
+        <span class="prompt-user">akshar@ubuntu</span>:<span class="prompt-dir">~/blog</span>$ cat concurrency.md
       </div>
 
-      <h1 class="post-title"><!-- Your Blog Post Title Here --></h1>
+      <h1 class="post-title">The Concurrency Matrix: Threads, Processes, and AsyncIO</h1>
 
       <div class="post-meta">
-        <span class="blog-tag"><!-- e.g. Data Engineering --></span>
-        <span class="post-meta-item">📅 <!-- e.g. August 25, 2026 --></span>
-        <span class="post-meta-item">⏱ <!-- e.g. 5 min read --></span>
+        <span class="blog-tag">Software Engineering</span>
+        <span class="post-meta-item"> August 25, 2026</span>
+        <span class="post-meta-item">⏱ 10 min read</span>
       </div>
     </section>
 
@@ -48,57 +49,276 @@
     <!-- Post Content -->
     <article class="post-content">
 
-      <!-- INTRO -->
       <p>
-        <!-- Your opening paragraph. Set the context for what the reader will learn. -->
+        To understand concurrent execution in Python, you first have to understand the <strong>GIL (Global Interpreter Lock)</strong>. The GIL allows only one thread to execute Python bytecode at a time. Python uses this mechanism to track memory object references securely — managing one global lock is easier and faster than tracking multiple individual locks.
       </p>
+
+      <p>
+        Before diving into the code, it is important to distinguish between two core concepts:
+      </p>
+
+      <ul>
+        <li><strong>Concurrency:</strong> Making progress between overlapping time periods, often managed by a single processor quickly switching context between tasks.</li>
+        <li><strong>Parallelism:</strong> True simultaneous execution across multiple processors.</li>
+      </ul>
+
+      <!-- Diagram 1: Sequential vs Concurrent vs Parallel -->
+      <div class="diagram-box">
+        <div class="diagram-title">Execution Models</div>
+        <div class="exec-diagram">
+
+          <div class="exec-row">
+            <div class="exec-label">Sequential</div>
+            <div class="exec-track">
+              <div class="exec-block block-a">Task A</div>
+              <div class="exec-arrow">→</div>
+              <div class="exec-block block-a">Task A</div>
+              <div class="exec-arrow">→</div>
+              <div class="exec-block block-b">Task B</div>
+              <div class="exec-arrow">→</div>
+              <div class="exec-block block-b">Task B</div>
+            </div>
+          </div>
+
+          <div class="exec-row">
+            <div class="exec-label">Concurrent<br><span class="exec-sublabel">Single Core</span></div>
+            <div class="exec-track">
+              <div class="exec-block block-a">Task A</div>
+              <div class="exec-arrow">→</div>
+              <div class="exec-block block-b">Task B</div>
+              <div class="exec-arrow">→</div>
+              <div class="exec-block block-a">Task A</div>
+              <div class="exec-arrow">→</div>
+              <div class="exec-block block-b">Task B</div>
+            </div>
+          </div>
+
+          <div class="exec-row">
+            <div class="exec-label">Parallel<br><span class="exec-sublabel">Multi-Core</span></div>
+            <div class="exec-tracks-col">
+              <div class="exec-track">
+                <div class="exec-block block-a">Task A</div>
+                <div class="exec-arrow">→</div>
+                <div class="exec-block block-a">Task A</div>
+              </div>
+              <div class="exec-track" style="margin-top: 0.5rem;">
+                <div class="exec-block block-b">Task B</div>
+                <div class="exec-arrow">→</div>
+                <div class="exec-block block-b">Task B</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <p>
+        Python provides <strong>three distinct approaches</strong> to handle concurrent execution, depending on whether your bottleneck is processing power or waiting for external responses.
+      </p>
+
+      <!-- Diagram 2: Concurrent Execution Decision Tree -->
+      <div class="diagram-box">
+        <div class="diagram-title">Concurrent Execution in Python</div>
+        <div class="tree-diagram">
+
+          <div class="tree-root">
+            <div class="tree-node root-node">Concurrent<br>Execution</div>
+          </div>
+
+          <!-- SVG connector from root to leaves -->
+          <svg class="tree-connector" viewBox="0 0 600 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="300" y1="0" x2="300" y2="25" stroke="var(--border-color)" stroke-width="1.5"/>
+            <line x1="100" y1="25" x2="500" y2="25" stroke="var(--border-color)" stroke-width="1.5"/>
+            <line x1="100" y1="25" x2="100" y2="50" stroke="var(--border-color)" stroke-width="1.5"/>
+            <line x1="300" y1="25" x2="300" y2="50" stroke="var(--border-color)" stroke-width="1.5"/>
+            <line x1="500" y1="25" x2="500" y2="50" stroke="var(--border-color)" stroke-width="1.5"/>
+          </svg>
+
+          <div class="tree-leaves">
+            <div class="tree-leaf">
+              <div class="tree-node leaf-node">
+                <div class="leaf-title">Multithreading</div>
+                <div class="leaf-desc">Multiple workers<br>I/O bound tasks<br>Shared memory</div>
+              </div>
+            </div>
+            <div class="tree-leaf">
+              <div class="tree-node leaf-node leaf-highlight">
+                <div class="leaf-title">Multiprocessing</div>
+                <div class="leaf-desc">Multiple workers<br>CPU bound tasks<br>Bypasses GIL</div>
+              </div>
+            </div>
+            <div class="tree-leaf">
+              <div class="tree-node leaf-node">
+                <div class="leaf-title">AsyncIO</div>
+                <div class="leaf-desc">Single worker<br>I/O bound tasks<br>Event loop</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
 
       <div class="post-section-break">· · ·</div>
 
       <!-- SECTION 1 -->
-      <h2><!-- Section Heading --></h2>
+      <h2>1. Multithreading — I/O Bound</h2>
+
       <p>
-        <!-- Section content goes here. Write naturally. -->
+        Multithreading utilizes multiple workers to handle many tasks concurrently. It uses OS-managed threads contained inside a single process, relying on <strong>preemptive multitasking</strong> — meaning the operating system can stop a running task at any time without its permission.
       </p>
 
-      <!-- Example: code block -->
-      <!--
-      <pre><code>def example():
-    print("Hello from the blog!")
-    return True</code></pre>
-      -->
+      <p>
+        Because multithreading is limited by the GIL, true parallel processing is not possible. However, it is highly effective for I/O bound tasks. When Thread 1 (which holds the GIL) is waiting for a response, it releases the GIL. Thread 2 then acquires it and executes its work.
+      </p>
 
-      <!-- Example: blockquote -->
-      <!--
+      <div class="code-block-wrapper">
+        <div class="code-block-header">
+          <span class="code-lang">Python</span>
+          <span class="code-label">multithreading example</span>
+        </div>
+        <pre><code>import threading
+import time
+
+def download(file_id):
+    print("Start: ", file_id)
+    time.sleep(2)  # Waiting to release GIL
+    print("Finish: ", file_id)
+
+threads = []
+for i in range(3):  # Starting all threads
+    t = threading.Thread(target=download, args=(i,))
+    threads.append(t)
+    t.start()
+
+for t in threads:  # Waiting for threads to end
+    t.join()</code></pre>
+      </div>
+
+      <p><strong>Output:</strong></p>
+      <img src="assets/blog2_multithreading.png" alt="Multithreading output screenshot" class="blog-screenshot">
+
       <blockquote>
-        <p>"A great quote or key takeaway you want to highlight."</p>
+        <p><strong>What is happening under the hood:</strong> The start prints execute sequentially. Once the threads hit the sleep function, all three drop the GIL. The OS wakes them up at slightly different times in milliseconds. Because the OS handles the waking and threads can reside on different cores, they acquire the GIL and finish non-sequentially.</p>
       </blockquote>
-      -->
-
-      <!-- Example: bullet list -->
-      <!--
-      <ul>
-        <li>First point about the topic</li>
-        <li>Second point with more detail</li>
-        <li>Third point wrapping up</li>
-      </ul>
-      -->
 
       <div class="post-section-break">· · ·</div>
 
       <!-- SECTION 2 -->
-      <h2><!-- Another Section Heading --></h2>
+      <h2>2. Multiprocessing — CPU Bound</h2>
+
       <p>
-        <!-- More content. Add images with <img src="..." alt="..."> -->
+        Multiprocessing achieves <strong>true parallel processing</strong> by deploying multiple workers across multiple CPU cores. Each process gets its own memory space and its own distinct Python interpreter — completely bypassing the GIL. This enables 100% multi-core CPU usage, making it the go-to for intensive tasks like image rendering and heavy math computations.
       </p>
+
+      <div class="code-block-wrapper">
+        <div class="code-block-header">
+          <span class="code-lang">Python</span>
+          <span class="code-label">multiprocessing example</span>
+        </div>
+        <pre><code>import multiprocessing
+
+def heavy_math(number):
+    print("Compute sum square of ", number)
+    result = sum(i * i for i in range(number))
+    print("Finished compute ", number)
+    return result
+
+if __name__ == '__main__':
+    nums = [5000000, 6000000]
+    with multiprocessing.Pool() as pool:
+        results = pool.map(heavy_math, nums)</code></pre>
+      </div>
+
+      <p><strong>Output:</strong></p>
+      <img src="assets/blog2_multiprocessing1.png" alt="Multiprocessing output screenshot" class="blog-screenshot">
+
+      <blockquote>
+        <p><strong>What is happening under the hood:</strong> The workload is physically divided across the processor. Core 1 receives the 5 million computation while Core 2 receives the 6 million. Both operate truly in parallel on different physical CPU cores.</p>
+      </blockquote>
+
+      <p>
+        <strong>What happens if the workloads are uneven?</strong> If we change the input to <code>nums = [5000000, 6, 7000000]</code>, the behavior changes dramatically and reveals how the process pool actually distributes work.
+      </p>
+
+      <p><strong>Output:</strong></p>
+      <img src="assets/blog2_multiprocessing2.png" alt="Multiprocessing uneven workload output screenshot" class="blog-screenshot">
+
+      <blockquote>
+        <p><strong>What is happening under the hood:</strong> Core 1 starts processing <code>5000000</code> while Core 2 starts processing <code>6</code>. Because computing the sum of squares for <code>6</code> is virtually instantaneous, Core 2 finishes immediately and — instead of waiting — the pool immediately assigns <code>7000000</code> to the newly freed Core 2. Workers operate completely independently, picking up new tasks the millisecond they go idle.</p>
+      </blockquote>
+
+      <div class="post-section-break">· · ·</div>
+
+      <!-- SECTION 3 -->
+      <h2>3. AsyncIO — I/O Bound</h2>
+
+      <p>
+        AsyncIO utilizes a <strong>single worker</strong> to manage many tasks simultaneously. Unlike multithreading, it employs <strong>cooperative tasking</strong> — tasks voluntarily yield control using the <code>await</code> keyword wherever they hit an I/O bottleneck.
+      </p>
+
+      <p>
+        It runs entirely on one thread with an event loop that pauses and resumes execution on a single CPU core. Because it stays strictly on one thread, it never fights for the GIL — zero lock contention. This extremely lightweight architecture is ideal for high-performance web servers, chat applications, and managing numerous open network connections.
+      </p>
+
+      <div class="code-block-wrapper">
+        <div class="code-block-header">
+          <span class="code-lang">Python</span>
+          <span class="code-label">asyncio example</span>
+        </div>
+        <pre><code>import asyncio
+
+async def fetch_api(req_id):
+    print("Send request ", req_id)
+    await asyncio.sleep(2)  # Can't use standard time.sleep() here
+    print("Received ", req_id)
+
+async def main():
+    # Multiple asynchronous coroutines
+    tasks = [fetch_api(i) for i in range(3)]
+    await asyncio.gather(*tasks)
+
+asyncio.run(main())</code></pre>
+      </div>
+
+      <p><strong>Output:</strong></p>
+      <img src="assets/blog2_asyncio.png" alt="AsyncIO output screenshot" class="blog-screenshot">
+
+      <blockquote>
+        <p><strong>What is happening under the hood:</strong> In multithreading, the OS wakes up threads at random intervals. In AsyncIO there is only one thread — the event loop systematically tracks which I/O operations are pending and resumes execution deterministically the moment the data arrives.</p>
+      </blockquote>
 
       <div class="post-section-break">· · ·</div>
 
       <!-- CONCLUSION -->
       <h2>Wrapping Up</h2>
+
       <p>
-        <!-- Summarize key points. What should the reader take away? -->
+        All three approaches solve the same fundamental problem — doing more than one thing at a time — but in very different ways depending on what your bottleneck actually is:
       </p>
+
+      <div class="pipeline-steps">
+        <div class="pipeline-step">
+          <div class="pipeline-step-num">⚡</div>
+          <div class="pipeline-step-body">
+            <strong>Multithreading</strong>
+            <p>Best for I/O-bound tasks (network calls, file reads). Multiple threads share one process, limited by the GIL but effective when waiting is the bottleneck.</p>
+          </div>
+        </div>
+        <div class="pipeline-step">
+          <div class="pipeline-step-num">🔥</div>
+          <div class="pipeline-step-body">
+            <strong>Multiprocessing</strong>
+            <p>Best for CPU-bound tasks (heavy computation, data processing). Multiple processes bypass the GIL entirely and run across physical cores.</p>
+          </div>
+        </div>
+        <div class="pipeline-step">
+          <div class="pipeline-step-num">🌀</div>
+          <div class="pipeline-step-body">
+            <strong>AsyncIO</strong>
+            <p>Best for high-concurrency I/O (web servers, APIs, WebSockets). A single-threaded event loop with zero lock contention and minimal overhead.</p>
+          </div>
+        </div>
+      </div>
 
     </article>
 
@@ -107,8 +327,7 @@
     <!-- Post Navigation -->
     <nav class="post-nav">
       <a href="blog1.html" class="post-nav-prev">← Previous Post</a>
-      <!-- Link to the next blog post when it exists -->
-      <a href="blog3.html" class="post-nav-next">Next Post →</a>
+      <a href="index.html" class="post-nav-next">All Posts →</a>
     </nav>
 
   </main>
@@ -123,18 +342,42 @@
     </div>
     <div>
       CPU ▓▓▓▓▓▓▓░░░ 68% •
-      RAM ▓▓▓▓░░░░░░ 41% 
+      RAM ▓▓▓▓░░░░░░ 41%
     </div>
   </footer>
 
   <script src="../script.js"></script>
 
-  <!-- Reading Progress Bar Script -->
   <script>
+    // Reading progress bar
     window.addEventListener('scroll', function() {
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
       const scrolled = (window.scrollY / docHeight) * 100;
       document.getElementById('reading-progress').style.width = scrolled + '%';
+    });
+
+    // Init mermaid with theme-aware colors
+    function initMermaid() {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark'
+                  || document.body.getAttribute('data-theme') === 'dark';
+      mermaid.initialize({
+        startOnLoad: true,
+        theme: isDark ? 'dark' : 'default',
+        themeVariables: {
+          primaryColor: isDark ? '#2a2a2a' : '#f5f5f5',
+          primaryTextColor: isDark ? '#e0e0e0' : '#111',
+          lineColor: '#c75000',
+          edgeLabelBackground: isDark ? '#1a1a1a' : '#fff',
+          clusterBkg: isDark ? '#1e1e1e' : '#fafafa',
+          clusterBorder: '#c75000',
+        }
+      });
+    }
+    initMermaid();
+
+    // Re-render mermaid when theme toggles
+    document.getElementById('checkbox').addEventListener('change', function() {
+      setTimeout(() => { location.reload(); }, 150);
     });
   </script>
 </body>

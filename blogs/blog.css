@@ -309,6 +309,225 @@
   margin: 1.5rem 0;
 }
 
+/* Screenshots from terminal output */
+.blog-screenshot {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  margin: 0.5rem 0 1.5rem 0;
+  display: block;
+}
+
+/* Mermaid diagram wrapper */
+/* =============================================
+   Custom Diagrams
+   ============================================= */
+.diagram-box {
+  margin: 1.5rem 0;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--block-background-color);
+}
+
+.diagram-title {
+  font-family: var(--global-font-family);
+  font-size: 0.72rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--primary-color);
+  padding: 0.6rem 1.2rem;
+  border-bottom: 1px solid var(--border-color);
+  background: var(--block-background-color);
+}
+
+/* --- Execution model diagram --- */
+.exec-diagram {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 1rem 1.5rem;
+}
+
+.exec-row {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem 0;
+  border-bottom: 1px dashed var(--border-color);
+}
+
+.exec-row:last-child {
+  border-bottom: none;
+}
+
+.exec-label {
+  flex: 0 0 110px;
+  font-family: var(--global-font-family);
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: var(--font-color);
+  text-align: right;
+  line-height: 1.4;
+}
+
+.exec-sublabel {
+  font-size: 0.72rem;
+  color: var(--secondary-color);
+  font-weight: normal;
+}
+
+.exec-track {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.exec-tracks-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.exec-block {
+  font-family: var(--global-font-family);
+  font-size: 0.8rem;
+  font-weight: bold;
+  padding: 0.4rem 0.9rem;
+  border-radius: 6px;
+  border: 1.5px solid;
+  white-space: nowrap;
+}
+
+.block-a {
+  background: rgba(199, 80, 0, 0.12);
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.block-b {
+  background: rgba(100, 180, 255, 0.10);
+  border-color: #5aaacc;
+  color: #5aaacc;
+}
+
+.exec-arrow {
+  color: var(--secondary-color);
+  font-size: 1.1rem;
+  user-select: none;
+}
+
+/* --- Tree diagram --- */
+.tree-diagram {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem 2rem 1rem;
+  gap: 0;
+}
+
+.tree-root {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0;
+}
+
+.tree-node {
+  text-align: center;
+  font-family: var(--global-font-family);
+  font-size: 0.85rem;
+  font-weight: bold;
+  border-radius: 8px;
+  padding: 0.6rem 1.2rem;
+  border: 1.5px solid var(--border-color);
+  background: var(--background-color);
+}
+
+.root-node {
+  background: rgba(199, 80, 0, 0.15);
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  font-size: 0.95rem;
+  padding: 0.8rem 2rem;
+}
+
+/* SVG connector lines */
+.tree-connector {
+  width: 100%;
+  max-width: 600px;
+  height: 50px;
+  display: block;
+  margin: 0 auto;
+}
+
+.tree-leaves {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  width: 100%;
+  max-width: 680px;
+}
+
+.tree-leaf {
+  display: flex;
+  justify-content: center;
+}
+
+.leaf-node {
+  width: 100%;
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.leaf-highlight {
+  background: rgba(199, 80, 0, 0.08);
+  border-color: var(--primary-color);
+}
+
+.leaf-title {
+  font-size: 0.88rem;
+  color: var(--primary-color);
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.leaf-desc {
+  font-size: 0.75rem;
+  color: var(--secondary-color);
+  font-weight: normal;
+  line-height: 1.6;
+}
+
+/* Horizontal bar connecting root to leaves */
+.tree-hbar-wrap {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 680px;
+  height: 30px;
+  position: relative;
+}
+
+.tree-hbar {
+  position: absolute;
+  top: 50%;
+  left: calc(1rem / 2 + 50% / 3);
+  right: calc(1rem / 2 + 50% / 3);
+  height: 1px;
+  background: var(--border-color);
+}
+
+.tree-vbar-down {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 1px;
+  height: 100%;
+  background: var(--border-color);
+}
+
 .post-content a {
   color: var(--primary-color);
   text-decoration: none;
