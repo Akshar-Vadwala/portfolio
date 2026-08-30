@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog Post Title | Akshar Vadwala</title>
+  <title>Docker Simplified | Akshar Vadwala</title>
   <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="blog.css">
 </head>
@@ -31,15 +31,15 @@
     <!-- Post Header -->
     <section class="post-header">
       <div class="terminal-prompt-header">
-        <span class="prompt-user">akshar@ubuntu</span>:<span class="prompt-dir">~/blog</span>$ cat blog1.md
+        <span class="prompt-user">akshar@ubuntu</span>:<span class="prompt-dir">~/blog</span>$ cat docker.md
       </div>
 
-      <h1 class="post-title"><!-- Your Blog Post Title Here --></h1>
+      <h1 class="post-title">Docker Simplified: From Basics to Enterprise Scale</h1>
 
       <div class="post-meta">
-        <span class="blog-tag"><!-- e.g. Data Engineering --></span>
-        <span class="post-meta-item">📅 <!-- e.g. August 25, 2026 --></span>
-        <span class="post-meta-item">⏱ <!-- e.g. 5 min read --></span>
+        <span class="blog-tag">Infrastructure</span>
+        <span class="post-meta-item"> July 29, 2026</span>
+        <span class="post-meta-item">⏱ 6 min read</span>
       </div>
     </section>
 
@@ -48,57 +48,168 @@
     <!-- Post Content -->
     <article class="post-content">
 
-      <!-- INTRO -->
       <p>
-        <!-- Your opening paragraph. Set the context for what the reader will learn. -->
+        The classic <strong>"it works on my machine"</strong> problem occurs when a local development environment differs from the production server. For example, an application built locally on Python 3.10 might fail when deployed to a production server running Python 3.8. Docker solves this by packaging the application and its exact environment into a standardized, portable unit called a <strong>image</strong>, which is then run identically as a <strong>container</strong> on any server.
       </p>
 
       <div class="post-section-break">· · ·</div>
 
       <!-- SECTION 1 -->
-      <h2><!-- Section Heading --></h2>
+      <h2>Defining the Environment</h2>
+
       <p>
-        <!-- Section content goes here. Write naturally. -->
+        Instead of configuring the server manually — installing runtimes, setting up directories, managing dependencies — you define the required environment declaratively in a <code>Dockerfile</code>. This guarantees consistency across every machine that runs it. Here is an example of a dockerfile.
       </p>
 
-      <!-- Example: code block -->
-      <!--
-      <pre><code>def example():
-    print("Hello from the blog!")
-    return True</code></pre>
-      -->
-
-      <!-- Example: blockquote -->
-      <!--
-      <blockquote>
-        <p>"A great quote or key takeaway you want to highlight."</p>
-      </blockquote>
-      -->
-
-      <!-- Example: bullet list -->
-      <!--
-      <ul>
-        <li>First point about the topic</li>
-        <li>Second point with more detail</li>
-        <li>Third point wrapping up</li>
-      </ul>
-      -->
+      <div class="code-block-wrapper">
+        <div class="code-block-header">
+          <span class="code-lang">Dockerfile</span>
+          <span class="code-label">production environment definition</span>
+        </div>
+        <pre><code>FROM python:3.8-slim
+WORKDIR /app
+COPY app.py .
+CMD ["python3", "app.py"]</code></pre>
+      </div>
 
       <div class="post-section-break">· · ·</div>
 
       <!-- SECTION 2 -->
-      <h2><!-- Another Section Heading --></h2>
+      <h2>Building and Distributing Images</h2>
+
       <p>
-        <!-- More content. Add images with <img src="..." alt="..."> -->
+        Once the <code>Dockerfile</code> is written, you compile it into a <strong>read-only snapshot</strong> of the production environment called an <strong>image</strong>. Think of an image like a frozen blueprint — immutable and reproducible.
       </p>
+
+      <ul>
+        <li><span class="cmd-pill">docker build -t &lt;name&gt;</span> — Compiles the Dockerfile into an image</li>
+        <li><span class="cmd-pill">docker image ls</span> — Lists all built images on your machine</li>
+      </ul>
+
+      <p>
+        To share this environment with teammates or deployment servers, the image is pushed to a centralized <strong>Docker Registry</strong> such as Docker Hub or AWS ECR.
+      </p>
+
+      <ul>
+        <li><span class="cmd-pill">docker push &lt;name&gt;</span> — Uploads the image to the registry</li>
+        <li><span class="cmd-pill">docker pull &lt;name&gt;</span> — Downloads the image for local use</li>
+      </ul>
+
+      <div class="post-section-break">· · ·</div>
+
+      <!-- SECTION 3 -->
+      <h2>Running Containers</h2>
+
+      <p>
+        A <strong>container</strong> is a running instance of your image. Executing the image guarantees the application uses the exact same environment parameters defined in the original <code>Dockerfile</code>.
+      </p>
+
+      <ul>
+        <li><span class="cmd-pill">docker run &lt;name&gt;</span> — Starts a container from an image</li>
+        <li><span class="cmd-pill">docker ps -a</span> — Lists all running and stopped containers</li>
+      </ul>
+
+      <p>
+        While this static approach is perfect for production servers, it creates a bottleneck for local development. Because images are frozen snapshots, you have to <strong>manually rebuild the entire image</strong> every time you change a single line of code. Consider this simple example:
+      </p>
+
+      <div class="code-block-wrapper">
+        <div class="code-block-header">
+          <span class="code-lang">Python</span>
+          <span class="code-label">app.py</span>
+        </div>
+        <pre><code># app.py
+print("Hello World!")  # Wait, I meant to type "Hello Docker!"</code></pre>
+      </div>
+
+      <p>
+        To fix that one-line typo using the basic workflow, you would need to kill the running container, re-run <code>docker build</code>, wait for the layers to recompile, and start a new container. Doing that 50 times a day is painfully slow.
+      </p>
+      
+
+      <div class="post-section-break">· · ·</div>
+
+      <!-- SECTION 4 -->
+      <h2>The Modern Local-to-Prod Workflow</h2>
+
+      <p>
+        Modern development solves this by using the <strong>exact same <code>Dockerfile</code></strong> for both local and production, but altering how the container is executed.
+      </p>
+
+      <div class="code-block-wrapper">
+        <div class="code-block-header">
+          <span class="code-lang">bash</span>
+          <span class="code-label">Production — runs exactly as built</span>
+        </div>
+        <pre><code>docker run &lt;name:latest&gt;</code></pre>
+      </div>
+
+      <div class="code-block-wrapper">
+        <div class="code-block-header">
+          <span class="code-lang">bash</span>
+          <span class="code-label">Local Development — virtual mount with -v flag</span>
+        </div>
+        <pre><code>docker run -v $(pwd):/app &lt;name:latest&gt;</code></pre>
+      </div>
+
+      <p>
+        The <code>-v</code> flag creates a <strong>virtual mount</strong>. It hides the directory baked into the image and overlays your live local working folder on top. You can now edit code locally and see changes <em>immediately</em> — no rebuild required.
+      </p>
+
+      <div class="post-section-break">· · ·</div>
+
+      <!-- SECTION 5 -->
+      <h2>Enterprise Scale: CI/CD and Orchestration</h2>
+
+      <p>
+        At the enterprise level, Docker acts as the foundation for automated deployment pipelines and large-scale orchestration.
+      </p>
+
+      <h3>The CI/CD Pipeline</h3>
+
+      <div class="pipeline-steps">
+        <div class="pipeline-step">
+          <div class="pipeline-step-num">01</div>
+          <div class="pipeline-step-body">
+            <strong>Developer pushes code</strong>
+            <p>Raw code is pushed from a local machine via <code>git push</code>.</p>
+          </div>
+        </div>
+        <div class="pipeline-step">
+          <div class="pipeline-step-num">02</div>
+          <div class="pipeline-step-body">
+            <strong>CI/CD Build Triggered</strong>
+            <p>GitHub/GitLab detects the push and triggers a CI/CD build pipeline automatically.</p>
+          </div>
+        </div>
+        <div class="pipeline-step">
+          <div class="pipeline-step-num">03</div>
+          <div class="pipeline-step-body">
+            <strong>Image Built & Pushed</strong>
+            <p>A Git runner inspects the <code>Dockerfile</code>, compiles a new image, and pushes it to the production registry.</p>
+          </div>
+        </div>
+        <div class="pipeline-step">
+          <div class="pipeline-step-num">04</div>
+          <div class="pipeline-step-body">
+            <strong>Kubernetes Orchestration</strong>
+            <p>Kubernetes pulls the image, spins up containers via YAML configs, and manages scaling, networking, and load balancing across server clusters.</p>
+          </div>
+        </div>
+      </div>
 
       <div class="post-section-break">· · ·</div>
 
       <!-- CONCLUSION -->
       <h2>Wrapping Up</h2>
+
       <p>
-        <!-- Summarize key points. What should the reader take away? -->
+        Docker's real power is in <strong>eliminating environment ambiguity</strong>. From a developer's laptop to a Kubernetes cluster handling millions of requests, the container guarantees the same runtime, every time. The <code>Dockerfile</code> becomes the single source of truth for your environment — version-controlled, reproducible, and shareable.
       </p>
+
+      <blockquote>
+        <p>"Ship the environment, not just the code."</p>
+      </blockquote>
 
     </article>
 
@@ -107,7 +218,6 @@
     <!-- Post Navigation -->
     <nav class="post-nav">
       <a href="index.html" class="post-nav-prev">← All Posts</a>
-      <!-- Link to the next blog post when it exists -->
       <a href="blog2.html" class="post-nav-next">Next Post →</a>
     </nav>
 
@@ -129,7 +239,6 @@
 
   <script src="../script.js"></script>
 
-  <!-- Reading Progress Bar Script -->
   <script>
     window.addEventListener('scroll', function() {
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;

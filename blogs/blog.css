@@ -26,8 +26,19 @@
 /* --- Blog Header --- */
 .blog-header h1 {
   font-family: var(--global-font-family);
-  font-size: 2.5rem;
+  font-size: 3.2rem;
   margin-bottom: 0.5rem;
+  letter-spacing: -2px;
+}
+
+.blink-cursor {
+  color: var(--primary-color);
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 
 .blog-tagline {
@@ -249,6 +260,13 @@
   border-radius: 0 8px 8px 0;
   font-style: italic;
   color: var(--secondary-color);
+  overflow: visible;
+  position: relative;
+}
+
+.post-content blockquote::after {
+  content: none !important;
+  display: none !important;
 }
 
 .post-content blockquote p {
@@ -269,7 +287,7 @@
   border: 1px solid var(--border-color);
   border-radius: 8px;
   padding: 1.2rem;
-  overflow-x: auto;
+  overflow: hidden;
   margin: 1.5rem 0;
 }
 
@@ -279,6 +297,8 @@
   padding: 0;
   font-size: 0.85rem;
   line-height: 1.7;
+  white-space: pre-wrap;
+  word-break: break-word;
 }
 
 .post-content img {
@@ -303,6 +323,123 @@
 }
 
 /* --- Terminal-style section divider --- */
+/* --- Code Block with Header --- */
+.code-block-wrapper {
+  margin: 1.5rem 0;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.code-block-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--block-background-color);
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.code-lang {
+  font-family: var(--global-font-family);
+  font-size: 0.72rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--primary-color);
+}
+
+.code-label {
+  font-family: var(--global-font-family);
+  font-size: 0.7rem;
+  color: var(--secondary-color);
+  font-style: italic;
+}
+
+.code-block-wrapper pre {
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  overflow: hidden;
+}
+
+.code-block-wrapper pre code,
+.post-content pre code {
+  overflow-x: unset !important;
+  overflow: hidden !important;
+  white-space: pre-wrap !important;
+  word-break: break-word !important;
+}
+
+/* --- Inline Command Pills --- */
+.cmd-pill {
+  display: inline-block;
+  font-family: var(--global-font-family);
+  font-size: 0.82rem;
+  background: var(--block-background-color);
+  border: 1px solid var(--border-color);
+  color: var(--primary-color);
+  padding: 0.15rem 0.6rem;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+/* --- Pipeline Steps --- */
+.pipeline-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 1.5rem 0;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.pipeline-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+  padding: 1rem 1.2rem;
+  border-bottom: 1px solid var(--border-color);
+  transition: background 0.2s ease;
+}
+
+.pipeline-step:last-child {
+  border-bottom: none;
+}
+
+.pipeline-step:hover {
+  background: var(--block-background-color);
+}
+
+.pipeline-step-num {
+  flex: 0 0 36px;
+  font-family: var(--global-font-family);
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  opacity: 0.4;
+  line-height: 1.2;
+  user-select: none;
+}
+
+.pipeline-step-body {
+  flex: 1;
+}
+
+.pipeline-step-body strong {
+  font-size: 0.95rem;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.pipeline-step-body p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--secondary-color);
+  line-height: 1.5;
+}
+
 .post-section-break {
   text-align: center;
   color: var(--secondary-color);

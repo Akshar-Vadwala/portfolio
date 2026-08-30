@@ -246,6 +246,7 @@ input:checked + .slider:before {
 
 .social-links a {
   display: inline-block;
+  position: relative;
   transition: transform 0.2s ease-in-out;
   background-color: transparent !important;
 }
@@ -264,6 +265,34 @@ input:checked + .slider:before {
 
 .social-links a:hover svg {
   fill: var(--font-color) !important; 
+}
+
+/* Tooltip label on hover */
+.social-links a::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) translateY(-4px);
+  background: var(--block-background-color);
+  color: var(--primary-color);
+  border: 1px solid var(--border-color);
+  font-family: var(--global-font-family);
+  font-size: 0.7rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.social-links a:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
 }
 
 .learn-more-link {
