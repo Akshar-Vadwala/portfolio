@@ -250,7 +250,7 @@ print("Hello World!")  # Wait, I meant to type "Hello Docker!"</code></pre>
       document.getElementById('reading-progress').style.width = scrolled + '%';
     });
 
-    // View Counter via reliable hits API
+    // View Counter via reliable hits API (reads persistent total views)
     async function fetchBlogViews(pageUrl) {
       try {
         const res = await fetch(`https://hitscounter.dev/api/hit?url=${encodeURIComponent(pageUrl)}`);
@@ -259,7 +259,9 @@ print("Hello World!")  # Wait, I meant to type "Hello Docker!"</code></pre>
         const xmlDoc = parser.parseFromString(text, "image/svg+xml");
         const titleEl = xmlDoc.querySelector("title");
         if (titleEl && titleEl.textContent) {
-          const count = titleEl.textContent.split("/")[0].trim();
+          const parts = titleEl.textContent.split("/");
+          // Read the total views (second number if present, otherwise first)
+          const count = (parts.length > 1 ? parts[1] : parts[0]).trim();
           document.getElementById('view-count').textContent = parseInt(count, 10).toLocaleString();
           return;
         }
